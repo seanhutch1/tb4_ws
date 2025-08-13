@@ -214,8 +214,8 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
   int pub_freq = 100;
   rclcpp::Rate loop_rate(pub_freq); /// publishes 100 times per second
 
-  int count = int(pub_freq*goal->radius/goal->max_translation_speed);
-  /// this finds the number of loop iterations needed to travel the set distance by the goal
+  int count = int(pub_freq*target_angle/angular_velocity);
+  /// this finds the number of loop iterations needed to turn based on the set angle from the goal ms, depending on angular vel
 
   geometry_msgs::msg::PoseStamped pose_stamped; /// saves current pos before movement
 
@@ -230,17 +230,19 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
         result->set__pose(pose_stamped);
         goal_handle->canceled(result);
         RCLCPP_INFO(this->get_logger(), "Goal canceled");
+        // cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{}); // puiblish 0 to stop robot
         return; /// if canceled then save result then exit
       }
 
 
     /// distance currently travelled and goal distance to find remaining
-    remaining_travel_distance = goal->radius - goal->max_translation_speed*i/pub_freq;
+    remaining_angle_travel = goal->radius - goal->max_translation_speed*i/pub_freq; ////fix
     
     // Publish the command velocity
     cmd_vel_publisher_->publish(cmd_vel);
 
     // Publish feedback
+    feedback->remaining_angle_travel
     goal_handle->publish_feedback(feedback);
   
     loop_rate.sleep(); /// to keep loop frequency

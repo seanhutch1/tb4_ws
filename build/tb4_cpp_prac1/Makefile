@@ -210,6 +210,56 @@ tb4_cpp_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_node.dir/build.make CMakeFiles/tb4_cpp_node.dir/build
 .PHONY : tb4_cpp_node/fast
 
+#=============================================================================
+# Target rules for targets named tb4_cpp_srv_server
+
+# Build rule for target.
+tb4_cpp_srv_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tb4_cpp_srv_server
+.PHONY : tb4_cpp_srv_server
+
+# fast build rule for target.
+tb4_cpp_srv_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_srv_server.dir/build.make CMakeFiles/tb4_cpp_srv_server.dir/build
+.PHONY : tb4_cpp_srv_server/fast
+
+#=============================================================================
+# Target rules for targets named tb4_cpp_action_server
+
+# Build rule for target.
+tb4_cpp_action_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tb4_cpp_action_server
+.PHONY : tb4_cpp_action_server
+
+# fast build rule for target.
+tb4_cpp_action_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_action_server.dir/build.make CMakeFiles/tb4_cpp_action_server.dir/build
+.PHONY : tb4_cpp_action_server/fast
+
+src/tb4_cpp_action_server.o: src/tb4_cpp_action_server.cpp.o
+.PHONY : src/tb4_cpp_action_server.o
+
+# target to build an object file
+src/tb4_cpp_action_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_action_server.dir/build.make CMakeFiles/tb4_cpp_action_server.dir/src/tb4_cpp_action_server.cpp.o
+.PHONY : src/tb4_cpp_action_server.cpp.o
+
+src/tb4_cpp_action_server.i: src/tb4_cpp_action_server.cpp.i
+.PHONY : src/tb4_cpp_action_server.i
+
+# target to preprocess a source file
+src/tb4_cpp_action_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_action_server.dir/build.make CMakeFiles/tb4_cpp_action_server.dir/src/tb4_cpp_action_server.cpp.i
+.PHONY : src/tb4_cpp_action_server.cpp.i
+
+src/tb4_cpp_action_server.s: src/tb4_cpp_action_server.cpp.s
+.PHONY : src/tb4_cpp_action_server.s
+
+# target to generate assembly for a file
+src/tb4_cpp_action_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_action_server.dir/build.make CMakeFiles/tb4_cpp_action_server.dir/src/tb4_cpp_action_server.cpp.s
+.PHONY : src/tb4_cpp_action_server.cpp.s
+
 src/tb4_cpp_node.o: src/tb4_cpp_node.cpp.o
 .PHONY : src/tb4_cpp_node.o
 
@@ -234,6 +284,30 @@ src/tb4_cpp_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_node.dir/build.make CMakeFiles/tb4_cpp_node.dir/src/tb4_cpp_node.cpp.s
 .PHONY : src/tb4_cpp_node.cpp.s
 
+src/tb4_cpp_srv_server.o: src/tb4_cpp_srv_server.cpp.o
+.PHONY : src/tb4_cpp_srv_server.o
+
+# target to build an object file
+src/tb4_cpp_srv_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_srv_server.dir/build.make CMakeFiles/tb4_cpp_srv_server.dir/src/tb4_cpp_srv_server.cpp.o
+.PHONY : src/tb4_cpp_srv_server.cpp.o
+
+src/tb4_cpp_srv_server.i: src/tb4_cpp_srv_server.cpp.i
+.PHONY : src/tb4_cpp_srv_server.i
+
+# target to preprocess a source file
+src/tb4_cpp_srv_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_srv_server.dir/build.make CMakeFiles/tb4_cpp_srv_server.dir/src/tb4_cpp_srv_server.cpp.i
+.PHONY : src/tb4_cpp_srv_server.cpp.i
+
+src/tb4_cpp_srv_server.s: src/tb4_cpp_srv_server.cpp.s
+.PHONY : src/tb4_cpp_srv_server.s
+
+# target to generate assembly for a file
+src/tb4_cpp_srv_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tb4_cpp_srv_server.dir/build.make CMakeFiles/tb4_cpp_srv_server.dir/src/tb4_cpp_srv_server.cpp.s
+.PHONY : src/tb4_cpp_srv_server.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -249,10 +323,18 @@ help:
 	@echo "... test"
 	@echo "... tb4_cpp_prac1_uninstall"
 	@echo "... uninstall"
+	@echo "... tb4_cpp_action_server"
 	@echo "... tb4_cpp_node"
+	@echo "... tb4_cpp_srv_server"
+	@echo "... src/tb4_cpp_action_server.o"
+	@echo "... src/tb4_cpp_action_server.i"
+	@echo "... src/tb4_cpp_action_server.s"
 	@echo "... src/tb4_cpp_node.o"
 	@echo "... src/tb4_cpp_node.i"
 	@echo "... src/tb4_cpp_node.s"
+	@echo "... src/tb4_cpp_srv_server.o"
+	@echo "... src/tb4_cpp_srv_server.i"
+	@echo "... src/tb4_cpp_srv_server.s"
 .PHONY : help
 
 

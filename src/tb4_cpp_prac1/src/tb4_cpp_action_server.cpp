@@ -139,7 +139,7 @@ void TurtleBot4Prac1::execute(const std::shared_ptr<GoalHandleDriveDistance> goa
   const auto goal = goal_handle->get_goal();
   auto feedback = std::make_shared<Drive_Distance::Feedback>();
 
-  auto & remaining_travel_distance = feedback->remaining_travel_distance;
+  auto & remaining_travel_distance = feedback->remaining_travel_distance; /// & creates alias, same object
   auto result = std::make_shared<Drive_Distance::Result>();
 
   geometry_msgs::msg::Twist cmd_vel;

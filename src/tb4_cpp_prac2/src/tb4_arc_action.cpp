@@ -147,10 +147,10 @@ rclcpp_action::GoalResponse TB4ArcActionServer::handle_goal(
 {
   RCLCPP_INFO(this->get_logger(), 
     "Received goal request with: \n translate_direction = %d ,\n angle = %f ,\n radius = %f ,\n max_translation_speed = %f ", 
-    goal-> translate_direction,     // int8 %d
-    goal-> angle,                   // float
-    goal-> radius,                  // float
-    goal-> max_translation_speed);  // float
+    goal->translate_direction,     // int8 %d
+    goal->angle,                   // float
+    goal->radius,                  // float
+    goal->max_translation_speed);  // float
   (void)uuid;
   
   return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
@@ -162,22 +162,101 @@ rclcpp_action::GoalResponse TB4ArcActionServer::handle_goal(
 
 
 
-
+// 2:00
 
 /* TODO TASKS - MILESTONE #5.1 ~ #5.3
   complete the  thread function "execute" to proccess the goal in the action request
 */
 void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoalHandle<irobot_create_msgs::action::DriveArc>> goal_handle)
 {
- 
+
+  RCLCPP_INFO(this->get_logger(), "Executing goal"); /// print
 
 
+  /// 5.1 define goal, feedback and result
+  const auto goal = goal_handle->get_goal(); /// get the goal message sent from client
 
-
-
-
+  int translate_direction = goal->translate_direction;      /// Whether to arc forward or backward from robot’s current position
+  float target_angle        = goal->angle;                  /// Relative angle (radians) for robot to rotate along arc from current heading. Angles greater than 2 PI will cause the robot to rotate in multiple circles
+  float turning_radius      = goal->radius;                 /// Radius of arc (meters) for robot to drive along
+  float max_speed           = goal->max_translation_speed;  /// Max translation speed (positive m/s), will cap negative distance to negative speed
 
   
+  auto feedback = std::make_shared<Drive_Arc::Feedback>(); /// Feedback msg is created here
+  
+  auto result = std::make_shared<Drive_Arc::Result>(); /// creates a result msg to send once goal finished or cancled // robots final pos
+  
+  
+
+
+
+
+  // 5.2 - validate goal
+
+
+  /// todo
+  
+
+
+  /// 5.3 
+
+  const int dir; if (translate_direction >= 0) {dir = 1} else {dir = -1};
+
+
+  geometry_msgs::msg::Twist cmd_vel;
+  cmd_vel.linear.set__x(goal->max_translation_speed); /// set speed from goal msg object member
+
+  float angular_velocity = dir * (max_speed / turning_radius);
+
+  cmd_vel.angular.set__z(angular_velocity); /// angular speed based on formula and turning direction
+
+
+  int pub_freq = 100;
+  rclcpp::Rate loop_rate(pub_freq); /// publishes 100 times per second
+
+  int count = int(pub_freq*goal->radius/goal->max_translation_speed);
+  /// this finds the number of loop iterations needed to travel the set distance by the goal
+
+  geometry_msgs::msg::PoseStamped pose_stamped; /// saves current pos before movement
+
+  for (int i = 0; (i<count) && rclcpp::ok(); ++i) 
+  {
+
+    pose_stamped.header = odom_->header; /// saves current odometry each cycle of loop
+    pose_stamped.pose = odom_->pose.pose; /// 
+
+    if (goal_handle->is_canceling()) 
+      {
+        result->set__pose(pose_stamped);
+        goal_handle->canceled(result);
+        RCLCPP_INFO(this->get_logger(), "Goal canceled");
+        return; /// if canceled then save result then exit
+      }
+
+
+    /// distance currently travelled and goal distance to find remaining
+    remaining_travel_distance = goal->radius - goal->max_translation_speed*i/pub_freq;
+    
+    // Publish the command velocity
+    cmd_vel_publisher_->publish(cmd_vel);
+
+    // Publish feedback
+    goal_handle->publish_feedback(feedback);
+  
+    loop_rate.sleep(); /// to keep loop frequency
+
+  }
+
+  // Check if goal is done
+  if(rclcpp::ok())
+  {
+    result->set__pose(pose_stamped);
+    goal_handle->succeed(result);
+    RCLCPP_INFO(this->get_logger(), "Goal succeeded");
+  }
+
+
+
 }
 
 

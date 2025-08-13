@@ -176,14 +176,15 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
   /// 5.1 define goal, feedback and result
   const auto goal = goal_handle->get_goal(); /// get the goal message sent from client
 
-  int translate_direction = goal->translate_direction;      /// Whether to arc forward or backward from robot’s current position
+  int translate_direction   = goal->translate_direction;    /// Whether to arc forward or backward from robot’s current position
   float target_angle        = goal->angle;                  /// Relative angle (radians) for robot to rotate along arc from current heading. Angles greater than 2 PI will cause the robot to rotate in multiple circles
   float turning_radius      = goal->radius;                 /// Radius of arc (meters) for robot to drive along
   float max_speed           = goal->max_translation_speed;  /// Max translation speed (positive m/s), will cap negative distance to negative speed
 
   
   auto feedback = std::make_shared<Drive_Arc::Feedback>(); /// Feedback msg is created here
-  
+  auto & remaining_angle_travel = feedback->remaining_angle_travel; /// & creates alias, same object so i can use auto
+
   auto result = std::make_shared<Drive_Arc::Result>(); /// creates a result msg to send once goal finished or cancled // robots final pos
   
   
@@ -235,19 +236,23 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
       }
 
 
-    /// distance currently travelled and goal distance to find remaining
-    remaining_angle_travel = goal->radius - goal->max_translation_speed*i/pub_freq; ////fix
-    
+  
     // Publish the command velocity
     cmd_vel_publisher_->publish(cmd_vel);
 
     // Publish feedback
-    feedback->remaining_angle_travel
+    /// angle currently travelled -  goal angle to find remaining  
+    feedback->remaining_angle_travel = target_angle - angular_velocity*i/pub_freq;
     goal_handle->publish_feedback(feedback);
   
     loop_rate.sleep(); /// to keep loop frequency
 
   }
+
+  // // after main movement loop, publish 0 to stop robot
+  // cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{});
+
+
 
   // Check if goal is done
   if(rclcpp::ok())

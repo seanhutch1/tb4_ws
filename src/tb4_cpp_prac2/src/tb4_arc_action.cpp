@@ -194,6 +194,12 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
 
   // 5.2 - validate goal
 
+  if (!odom_ || turning_radius <= 0.0 || max_speed <= 0.0 || target_angle <= 0.0) 
+  {
+    RCLCPP_INFO(this->get_logger(), "Invalid goal! Check for: odom_, radius>0, speed>0, angle>0");
+    return;
+  }
+
 
   /// todo
   
@@ -201,21 +207,27 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
 
   /// 5.3 
 
-  const int dir; if (translate_direction >= 0) {dir = 1} else {dir = -1};
+  int dir; 
+  if (translate_direction >= 0){
+    dir = 1;
+  } 
+  else {
+    dir = -1;
+  }
 
 
   geometry_msgs::msg::Twist cmd_vel;
-  cmd_vel.linear.set__x(goal->max_translation_speed); /// set speed from goal msg object member
+  cmd_vel.linear.set__x(max_speed); /// set speed from goal msg object member
 
-  float angular_velocity = dir * (max_speed / turning_radius);
+  const float angular_velocity = static_cast<float>(dir) * (max_speed / turning_radius); /// angular_v = speed / radius
 
   cmd_vel.angular.set__z(angular_velocity); /// angular speed based on formula and turning direction
 
 
   int pub_freq = 100;
   rclcpp::Rate loop_rate(pub_freq); /// publishes 100 times per second
-
-  int count = int(pub_freq*target_angle/angular_velocity);
+  /// so count will be 100 * target angle / (speed / radius)  eg. 100*1/(0.2/2) = 
+  const int count = static_cast<int>(std::ceil(pub_freq*std::abs(target_angle)/std::abs(angular_velocity)));
   /// this finds the number of loop iterations needed to turn based on the set angle from the goal ms, depending on angular vel
 
   geometry_msgs::msg::PoseStamped pose_stamped; /// saves current pos before movement
@@ -242,7 +254,9 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
 
     // Publish feedback
     /// angle currently travelled -  goal angle to find remaining  
-    feedback->remaining_angle_travel = target_angle - angular_velocity*i/pub_freq;
+    const float progressed = std::abs(angular_velocity) * (static_cast<float>(i) / static_cast<float>(pub_freq));
+    remaining_angle_travel = (std::abs(target_angle) - progressed);
+
     goal_handle->publish_feedback(feedback);
   
     loop_rate.sleep(); /// to keep loop frequency
@@ -250,7 +264,7 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
   }
 
   // // after main movement loop, publish 0 to stop robot
-  // cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{});
+  cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{});
 
 
 

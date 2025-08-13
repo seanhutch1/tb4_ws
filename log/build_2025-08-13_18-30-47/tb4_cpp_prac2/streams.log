@@ -1,0 +1,45 @@
+[0.014s] Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+[0.077s] [35m[1mConsolidate compiler generated dependencies of target tb4_arc_action[0m
+[0.098s] [ 50%] [32mBuilding CXX object CMakeFiles/tb4_arc_action.dir/src/tb4_arc_action.cpp.o[0m
+[2.843s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:[m[K In member function ‘[01m[Kvoid TB4ArcActionServer::execute(std::shared_ptr<rclcpp_action::ServerGoalHandle<irobot_create_msgs::action::DriveArc> >)[m[K’:
+[2.843s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:258:38:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmax(double, float)[m[K’
+[2.843s]   258 |     remaining_angle_travel = [01;31m[Kstd::max(0.0, std::abs(target_angle) - progressed)[m[K;
+[2.843s]       |                              [01;31m[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.843s] In file included from [01m[K/usr/include/c++/12/bits/hashtable_policy.h:35[m[K,
+[2.843s]                  from [01m[K/usr/include/c++/12/bits/hashtable.h:35[m[K,
+[2.843s]                  from [01m[K/usr/include/c++/12/unordered_map:46[m[K,
+[2.844s]                  from [01m[K/usr/include/c++/12/functional:61[m[K,
+[2.844s]                  from [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:1[m[K:
+[2.844s] [01m[K/usr/include/c++/12/bits/stl_algobase.h:254:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> constexpr const _Tp& std::max(const _Tp&, const _Tp&)[m[K’
+[2.844s]   254 |     [01;36m[Kmax[m[K(const _Tp& __a, const _Tp& __b)
+[2.844s]       |     [01;36m[K^~~[m[K
+[2.844s] [01m[K/usr/include/c++/12/bits/stl_algobase.h:254:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.844s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:258:38:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter ‘[01m[Kconst _Tp[m[K’ (‘[01m[Kdouble[m[K’ and ‘[01m[Kfloat[m[K’)
+[2.844s]   258 |     remaining_angle_travel = [01;36m[Kstd::max(0.0, std::abs(target_angle) - progressed)[m[K;
+[2.844s]       |                              [01;36m[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.844s] [01m[K/usr/include/c++/12/bits/stl_algobase.h:300:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _Compare> constexpr const _Tp& std::max(const _Tp&, const _Tp&, _Compare)[m[K’
+[2.844s]   300 |     [01;36m[Kmax[m[K(const _Tp& __a, const _Tp& __b, _Compare __comp)
+[2.844s]       |     [01;36m[K^~~[m[K
+[2.844s] [01m[K/usr/include/c++/12/bits/stl_algobase.h:300:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.844s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:258:38:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter ‘[01m[Kconst _Tp[m[K’ (‘[01m[Kdouble[m[K’ and ‘[01m[Kfloat[m[K’)
+[2.844s]   258 |     remaining_angle_travel = [01;36m[Kstd::max(0.0, std::abs(target_angle) - progressed)[m[K;
+[2.844s]       |                              [01;36m[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.844s] In file included from [01m[K/usr/include/c++/12/functional:64[m[K:
+[2.844s] [01m[K/usr/include/c++/12/bits/stl_algo.h:5746:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> constexpr _Tp std::max(initializer_list<_Tp>)[m[K’
+[2.844s]  5746 |     [01;36m[Kmax[m[K(initializer_list<_Tp> __l)
+[2.848s]       |     [01;36m[K^~~[m[K
+[2.848s] [01m[K/usr/include/c++/12/bits/stl_algo.h:5746:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.848s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:258:38:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kstd::initializer_list<_Tp>[m[K’ and ‘[01m[Kdouble[m[K’
+[2.848s]   258 |     remaining_angle_travel = [01;36m[Kstd::max(0.0, std::abs(target_angle) - progressed)[m[K;
+[2.848s]       |                              [01;36m[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.848s] [01m[K/usr/include/c++/12/bits/stl_algo.h:5756:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class _Compare> constexpr _Tp std::max(initializer_list<_Tp>, _Compare)[m[K’
+[2.848s]  5756 |     [01;36m[Kmax[m[K(initializer_list<_Tp> __l, _Compare __comp)
+[2.848s]       |     [01;36m[K^~~[m[K
+[2.848s] [01m[K/usr/include/c++/12/bits/stl_algo.h:5756:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.848s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:258:38:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kstd::initializer_list<_Tp>[m[K’ and ‘[01m[Kdouble[m[K’
+[2.848s]   258 |     remaining_angle_travel = [01;36m[Kstd::max(0.0, std::abs(target_angle) - progressed)[m[K;
+[2.848s]       |                              [01;36m[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.017s] gmake[2]: *** [CMakeFiles/tb4_arc_action.dir/build.make:76: CMakeFiles/tb4_arc_action.dir/src/tb4_arc_action.cpp.o] Error 1
+[6.020s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/tb4_arc_action.dir/all] Error 2
+[6.020s] gmake: *** [Makefile:146: all] Error 2
+[6.021s] Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6

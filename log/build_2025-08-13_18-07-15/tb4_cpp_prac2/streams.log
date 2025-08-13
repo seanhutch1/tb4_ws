@@ -1,0 +1,20 @@
+[0.030s] Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+[0.279s] [35m[1mConsolidate compiler generated dependencies of target tb4_arc_action[0m
+[0.295s] [ 50%] [32mBuilding CXX object CMakeFiles/tb4_arc_action.dir/src/tb4_arc_action.cpp.o[0m
+[2.924s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:[m[K In member function ‘[01m[Kvoid TB4ArcActionServer::execute(std::shared_ptr<rclcpp_action::ServerGoalHandle<irobot_create_msgs::action::DriveArc> >)[m[K’:
+[2.924s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:204:13:[m[K [01;31m[Kerror: [m[Kuninitialized ‘[01m[Kconst dir[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.924s]   204 |   const int [01;31m[Kdir[m[K; if (translate_direction >= 0) {dir = 1} else {dir = -1};
+[2.924s]       |             [01;31m[K^~~[m[K
+[2.924s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:204:53:[m[K [01;31m[Kerror: [m[Kassignment of read-only variable ‘[01m[Kdir[m[K’
+[2.924s]   204 |   const int dir; if (translate_direction >= 0) {[01;31m[Kdir = 1[m[K} else {dir = -1};
+[2.925s]       |                                                 [01;31m[K~~~~^~~[m[K
+[2.925s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:204:68:[m[K [01;31m[Kerror: [m[Kassignment of read-only variable ‘[01m[Kdir[m[K’
+[2.925s]   204 |   const int dir; if (translate_direction >= 0) {dir = 1} else {[01;31m[Kdir = -1[m[K};
+[2.925s]       |                                                                [01;31m[K~~~~^~~~[m[K
+[2.928s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac2/src/tb4_arc_action.cpp:186:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kremaining_angle_travel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.928s]   186 |   auto & [01;35m[Kremaining_angle_travel[m[K = feedback->remaining_angle_travel; /// & creates alias, same object so i can use auto
+[2.928s]       |          [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.949s] gmake[2]: *** [CMakeFiles/tb4_arc_action.dir/build.make:76: CMakeFiles/tb4_arc_action.dir/src/tb4_arc_action.cpp.o] Error 1
+[5.949s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/tb4_arc_action.dir/all] Error 2
+[5.950s] gmake: *** [Makefile:146: all] Error 2
+[5.953s] Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6

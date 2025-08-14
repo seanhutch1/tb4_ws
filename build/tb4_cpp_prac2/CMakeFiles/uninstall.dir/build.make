@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotai/tb4_ws/src/tb4_cpp_prac2
+CMAKE_SOURCE_DIR = /home/eecms/tb4_ws/src/tb4_cpp_prac2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotai/tb4_ws/build/tb4_cpp_prac2
+CMAKE_BINARY_DIR = /home/eecms/tb4_ws/build/tb4_cpp_prac2
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/robotai/tb4_ws/build/tb4_cpp_prac2 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robotai/tb4_ws/src/tb4_cpp_prac2 /home/robotai/tb4_ws/src/tb4_cpp_prac2 /home/robotai/tb4_ws/build/tb4_cpp_prac2 /home/robotai/tb4_ws/build/tb4_cpp_prac2 /home/robotai/tb4_ws/build/tb4_cpp_prac2/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/eecms/tb4_ws/build/tb4_cpp_prac2 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/eecms/tb4_ws/src/tb4_cpp_prac2 /home/eecms/tb4_ws/src/tb4_cpp_prac2 /home/eecms/tb4_ws/build/tb4_cpp_prac2 /home/eecms/tb4_ws/build/tb4_cpp_prac2 /home/eecms/tb4_ws/build/tb4_cpp_prac2/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

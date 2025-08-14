@@ -243,7 +243,7 @@ void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoal
         result->set__pose(pose_stamped);
         goal_handle->canceled(result);
         RCLCPP_INFO(this->get_logger(), "Goal canceled");
-        // cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{}); // puiblish 0 to stop robot
+        cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{}); // puiblish 0 to stop robot
         return; /// if canceled then save result then exit
       }
 

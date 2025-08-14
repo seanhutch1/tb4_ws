@@ -1,2 +1,0 @@
-Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac1 -- -j6 -l6
-Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac1' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac1 -- -j6 -l6

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotai/tb4_ws/src/tb4_cpp_prac1
+CMAKE_SOURCE_DIR = /home/eecms/tb4_ws/src/tb4_cpp_prac1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotai/tb4_ws/build/tb4_cpp_prac1
+CMAKE_BINARY_DIR = /home/eecms/tb4_ws/build/tb4_cpp_prac1
 
 # Utility rule file for tb4_cpp_prac1_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/tb4_cpp_prac1_uninstall.dir/compiler_depend.make
 include CMakeFiles/tb4_cpp_prac1_uninstall.dir/progress.make
 
 CMakeFiles/tb4_cpp_prac1_uninstall:
-	/usr/bin/cmake -P /home/robotai/tb4_ws/build/tb4_cpp_prac1/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/eecms/tb4_ws/build/tb4_cpp_prac1/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 tb4_cpp_prac1_uninstall: CMakeFiles/tb4_cpp_prac1_uninstall
 tb4_cpp_prac1_uninstall: CMakeFiles/tb4_cpp_prac1_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/tb4_cpp_prac1_uninstall.dir/clean:
 .PHONY : CMakeFiles/tb4_cpp_prac1_uninstall.dir/clean
 
 CMakeFiles/tb4_cpp_prac1_uninstall.dir/depend:
-	cd /home/robotai/tb4_ws/build/tb4_cpp_prac1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robotai/tb4_ws/src/tb4_cpp_prac1 /home/robotai/tb4_ws/src/tb4_cpp_prac1 /home/robotai/tb4_ws/build/tb4_cpp_prac1 /home/robotai/tb4_ws/build/tb4_cpp_prac1 /home/robotai/tb4_ws/build/tb4_cpp_prac1/CMakeFiles/tb4_cpp_prac1_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/eecms/tb4_ws/build/tb4_cpp_prac1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/eecms/tb4_ws/src/tb4_cpp_prac1 /home/eecms/tb4_ws/src/tb4_cpp_prac1 /home/eecms/tb4_ws/build/tb4_cpp_prac1 /home/eecms/tb4_ws/build/tb4_cpp_prac1 /home/eecms/tb4_ws/build/tb4_cpp_prac1/CMakeFiles/tb4_cpp_prac1_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tb4_cpp_prac1_uninstall.dir/depend
 

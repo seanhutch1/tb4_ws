@@ -1,0 +1,23 @@
+[0.013s] Invoking command in '/home/eecms/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/eecms/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+[0.067s] [35m[1mConsolidate compiler generated dependencies of target tb4_arc_action[0m
+[0.088s] [100%] Built target tb4_arc_action
+[0.103s] Invoked command in '/home/eecms/tb4_ws/build/tb4_cpp_prac2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/eecms/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+[0.113s] Invoking command in '/home/eecms/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/eecms/tb4_ws/build/tb4_cpp_prac2
+[0.122s] -- Install configuration: ""
+[0.122s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/lib/tb4_cpp_prac2/tb4_arc_action
+[0.122s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/ament_index/resource_index/package_run_dependencies/tb4_cpp_prac2
+[0.122s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/ament_index/resource_index/parent_prefix_path/tb4_cpp_prac2
+[0.122s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/environment/ament_prefix_path.sh
+[0.122s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/environment/ament_prefix_path.dsv
+[0.122s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/environment/path.sh
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/environment/path.dsv
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/local_setup.bash
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/local_setup.sh
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/local_setup.zsh
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/local_setup.dsv
+[0.123s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.dsv
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/ament_index/resource_index/packages/tb4_cpp_prac2
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/cmake/tb4_cpp_prac2Config.cmake
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/cmake/tb4_cpp_prac2Config-version.cmake
+[0.123s] -- Up-to-date: /home/eecms/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.xml
+[0.125s] Invoked command in '/home/eecms/tb4_ws/build/tb4_cpp_prac2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/eecms/tb4_ws/build/tb4_cpp_prac2

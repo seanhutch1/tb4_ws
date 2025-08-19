@@ -126,9 +126,12 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
   rcl_interfaces::msg::SetParametersResult result; /// create the result object
 
   for (auto parameter : parameters) { /// FOR loop over parameter changes
-    const auto & param_type = parameter.get_type();
-    const auto & param_name = parameter.get_name();
-    if (param_type == ParameterType::PARAMETER_DOUBLE) {
+    const auto & param_type = parameter.get_type(); /// extract type
+    const auto & param_name = parameter.get_name(); /// extract name
+  
+    if (param_type == ParameterType::PARAMETER_DOUBLE)
+    {
+
       if (param_name == "following_distance") {
         following_distance_ = parameter.as_double();
         if(following_distance_<0.0)
@@ -137,6 +140,7 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
           " this isn't allowed, so the alpha1 will be set to be zero.");
           following_distance_ = 0.0;
         }
+        continue;
       }
       /* 
       TODO TASK 3 - MILESTONE # 2.1
@@ -149,6 +153,30 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
       double distance_control_gain_;
 
       */
+
+          
+      if (name == "following_angle") {
+        following_angle_ = parameter.as_double();
+        continue;
+      }
+
+      if (name == "angle_control_gain") {
+        angle_control_gain_ = parameter.as_double();
+        if (angle_control_gain_ < 0.0) {
+          RCLCPP_WARN(this->get_logger(), "angle_control_gain cant be a negative, setting to 0");
+          angle_control_gain_ = 0.0;
+        }
+        continue;
+      }
+
+      if (name == "distance_control_gain") {
+        distance_control_gain_ = parameter.as_double();
+        if (distance_control_gain_ < 0.0) {
+          RCLCPP_WARN(this->get_logger(), "distance_control_gain cant be negative, setting to 0");
+          distance_control_gain_ = 0.0;
+        }
+        continue;
+      }
 
     }
   }

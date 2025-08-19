@@ -1,7 +1,6 @@
 #include <functional>
 #include <memory>
 #include <thread>
-
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "geometry_msgs/msg/twist.hpp"
@@ -16,64 +15,45 @@ public:
   explicit TB4ArcActionServer(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
   :Node("tb4_arc_action_server", options)
   {
-    /*TODO  TASK - MILESTONE #2.2 Initialise the command velocity publisher share pointer*/
+    /*MILESTONE #2.2 Initialise the command velocity publisher share pointer*/
+    this->cmd_vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", rclcpp::SystemDefaultsQoS());
+		using namespace std::placeholders;
 
-    // Publisher of topic /cmd_vel
-    this->cmd_vel_publisher_ = this->create_publisher<geometry_msgs::msg::Twist>(
-      "/cmd_vel",
-      rclcpp::SystemDefaultsQoS());
-    using namespace std::placeholders;
-
-    /*TODO  TASK - MILESTONE #2.3 Initialise the odometry subscriber share pointer, and bing the call back function
-      "odom_callback" */
-
-    // Subscribe to the /odom topic
-    this->odom_subscriber_ = this->create_subscription<nav_msgs::msg::Odometry>(
-      "/odom",
-      rclcpp::SensorDataQoS(),
-      std::bind(&TB4ArcActionServer::odom_callback, this, std::placeholders::_1)
+    /*MILESTONE #2.3 Initialise the odometry subsriber share pointer, and bing the call back function
+      "odom_callback"
+    */
+    this->odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(	"odom", 
+																																		rclcpp::SensorDataQoS(), 
+																																		std::bind(&TB4ArcActionServer::odom_callback, 
+																																							this, 
+																																							std::placeholders::_1)
     );
 
-    /*TODO  TASK - MILESTONE #2.4
+    /*MILESTONE #2.4
       Initialsie the drive arc action server with name as "drive_arc_prac2", and bind call back functions for
-      handling of accepting a goal, cancelling a action, and process the accepted goal */
-
-    // Action server with name as "drive_arc_prac2", and bind callback functions
+      handling of accepting a goal, cancelling a action, and process the accepted goal
+    */
     this->action_server_ = rclcpp_action::create_server<Drive_Arc>(
       this,
       "drive_arc_prac2",
       std::bind(&TB4ArcActionServer::handle_goal, this, _1, _2),
       std::bind(&TB4ArcActionServer::handle_cancel, this, _1),
-      std::bind(&TB4ArcActionServer::handle_accepted, this, _1));
+      std::bind(&TB4ArcActionServer::handle_accepted, this, _1)
+    );
+
+  RCLCPP_INFO(this->get_logger(), "TB4 Arc Action Server Initialized.");
 
   }
 private:
-  /* TODO TASK - MILESTONE #2.1
+  /* MILESTONE #2.1
   Define shared pointers for 
     - action server for drive arc defined in irobot_create_msgs, 
     - command velocity publisher
     - odometry subscriber
   */
-
-  /// from prac 1 action server node:
-  /// creates smart pointers (memory is managed automatically) to store them as class members so they dont get lost once constructor finsihes.
-   // Define Drive Arc server
-  rclcpp_action::Server<Drive_Arc>::SharedPtr action_server_;
-
-   // Define a command velocity publisher
-  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_publisher_;
-
-   // Define Odometry subscriber
-  rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_subscriber_;
-
-
-
-
-
-
-
-
-
+ rclcpp_action::Server<Drive_Arc>::SharedPtr action_server_;
+ rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_pub_;
+ rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub_;
 
 
   // odometry pointer
@@ -100,195 +80,133 @@ private:
 
 void TB4ArcActionServer::odom_callback(const nav_msgs::msg::Odometry::SharedPtr odom_msg)
 {
-  /*TODO TASK - MILESTONE #3.1
-    save the odom_msg to the class member variable odom_ */
-
-  /// 'odom_callback' callback function runs when receiving the odometry message
-  odom_ = odom_msg; /// saves the received msg into a class member for later use in execute() function
-
+  /* MILESTONE #3.1
+    save the odom_msg to the class member variable odom_   
+  */
+ odom_ = odom_msg;
+ RCLCPP_INFO(this->get_logger(), "Received odometry");
 }
 
-
-
-/*TODO TASK - MILESTONE #4.1
+/*i MILESTONE #4.1
   complete the  call back function of "TB4ArcActionServer::handle_accepted" that handling the accepted goal 
 */
 void TB4ArcActionServer::handle_accepted(const std::shared_ptr<rclcpp_action::ServerGoalHandle<irobot_create_msgs::action::DriveArc>> goal_handle)
 {
-  using namespace std::placeholders;
-  // From prac 1: this needs to return quickly to avoid blocking the executor, so spin up a new thread
-
-  /// makes a new thread and calls execute() function to run at the same time (execute(goal_handle)) goal hnadle is a param when calling execute
-  std::thread{std::bind(&TB4ArcActionServer::execute, this, _1), goal_handle}.detach();
+  std::thread{std::bind(&TB4ArcActionServer::execute, this, goal_handle)}.detach();
+  
 }
-
-
-
-/* TODO TASK - MILESTONE #4.2
+/* MILESTONE #4.2
   complete the  call back function of "TB4ArcActionServer::handle_cancel" that cancel the goal 
   */
 rclcpp_action::CancelResponse TB4ArcActionServer::handle_cancel(
   const std::shared_ptr<rclcpp_action::ServerGoalHandle<irobot_create_msgs::action::DriveArc>> goal_handle)
 {
-  RCLCPP_INFO(this->get_logger(), "Received request to cancel goal");
+  RCLCPP_INFO(this->get_logger(), "Received cancel request.");
   (void)goal_handle;
   return rclcpp_action::CancelResponse::ACCEPT;
+
 }
-
-
-
-/*TODO TASK - MILESTONE #4.3
+/* MILESTONE #4.3
   complete the  call back function of "TB4ArcActionServer::handle_goal" that accept goal, 
   you should also print the goal details in the terminal 
 */
 rclcpp_action::GoalResponse TB4ArcActionServer::handle_goal(
   const rclcpp_action::GoalUUID & uuid,
-  std::shared_ptr<const irobot_create_msgs::action::DriveArc::Goal> goal)
+  std::shared_ptr<const irobot_create_msgs::action::DriveArc::Goal> goal
+)
 {
-  RCLCPP_INFO(this->get_logger(), 
-    "Received goal request with: \n translate_direction = %d ,\n angle = %f ,\n radius = %f ,\n max_translation_speed = %f ", 
-    goal->translate_direction,     // int8 %d
-    goal->angle,                   // float
-    goal->radius,                  // float
-    goal->max_translation_speed);  // float
+  RCLCPP_INFO(this->get_logger(),
+    "Received goal: direction=%d, angle=%.2f rad, radius=%.2f m, speed=%.2f m/s",
+    goal->translate_direction, goal->angle, goal->radius, goal->max_translation_speed);
   (void)uuid;
-  
   return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+  
 }
-
-
-
-
-
-
-
-// 2:00
-
-/* TODO TASKS - MILESTONE #5.1 ~ #5.3
+/* MILESTONE #5.1 ~ #5.3
   complete the  thread function "execute" to proccess the goal in the action request
 */
 void TB4ArcActionServer::execute(const std::shared_ptr<rclcpp_action::ServerGoalHandle<irobot_create_msgs::action::DriveArc>> goal_handle)
 {
+  RCLCPP_INFO(this->get_logger(), "Executing goal");
 
-  RCLCPP_INFO(this->get_logger(), "Executing goal"); /// print
+  const auto goal = goal_handle->get_goal();
 
+  auto feedback = std::make_shared<Drive_Arc::Feedback>();
+  auto result = std::make_shared<Drive_Arc::Result>();
 
-  /// 5.1 define goal, feedback and result
-  const auto goal = goal_handle->get_goal(); /// get the goal message sent from client
+  // Calculate angular velocity: ω = v / r
+  double angular_speed = goal->max_translation_speed / goal->radius;
 
-  int translate_direction   = goal->translate_direction;    /// Whether to arc forward or backward from robot’s current position
-  float target_angle        = goal->angle;                  /// Relative angle (radians) for robot to rotate along arc from current heading. Angles greater than 2 PI will cause the robot to rotate in multiple circles
-  float turning_radius      = goal->radius;                 /// Radius of arc (meters) for robot to drive along
-  float max_speed           = goal->max_translation_speed;  /// Max translation speed (positive m/s), will cap negative distance to negative speed
+  // Adjust direction (clockwise/counterclockwise)
+  if (goal->translate_direction < 0)
+    angular_speed = -angular_speed;
 
-  
-  auto feedback = std::make_shared<Drive_Arc::Feedback>(); /// Feedback msg is created here
-  auto & remaining_angle_travel = feedback->remaining_angle_travel; /// & creates alias, same object so i can use auto
+  // Total angle to travel
+  double angle_to_travel = goal->angle;
 
-  auto result = std::make_shared<Drive_Arc::Result>(); /// creates a result msg to send once goal finished or cancled // robots final pos
-  
-  
+  // Variables to track progress
+  double angle_traveled = 0.0;
 
+  // Create Twist message for velocity commands
+  geometry_msgs::msg::Twist cmd_vel_msg;
 
+  // Set linear speed (x) and angular speed (z)
+  cmd_vel_msg.linear.x = goal->max_translation_speed;
+  cmd_vel_msg.angular.z = angular_speed;
 
+  rclcpp::Rate rate(10); // 10 Hz loop rate
 
-  // 5.2 - validate goal
+  auto start_time = this->now();
 
-  if (!odom_ || turning_radius <= 0.0 || max_speed <= 0.0 || target_angle <= 0.0) 
+  while (rclcpp::ok() && angle_traveled < angle_to_travel)
   {
-    RCLCPP_INFO(this->get_logger(), "Invalid goal! Check for: odom_, radius>0, speed>0, angle>0");
-    return;
-  }
+    // Check for cancel request
+    if (goal_handle->is_canceling())
+    {
+      cmd_vel_msg.linear.x = 0.0;
+      cmd_vel_msg.angular.z = 0.0;
+      cmd_vel_pub_->publish(cmd_vel_msg);
 
+      goal_handle->canceled(result);
+      RCLCPP_INFO(this->get_logger(), "Goal canceled");
+      return;
+    }
 
-  /// todo
-  
+    // Publish velocity commands
+    cmd_vel_pub_->publish(cmd_vel_msg);
 
+    // Calculate elapsed time and update angle traveled
+    auto now = this->now();
+    double elapsed_seconds = (now - start_time).seconds();
 
-  /// 5.3 
-
-  int dir; 
-  if (translate_direction >= 0){
-    dir = 1;
-  } 
-  else {
-    dir = -1;
-  }
-
-
-  geometry_msgs::msg::Twist cmd_vel;
-  cmd_vel.linear.set__x(max_speed); /// set speed from goal msg object member
-
-  const float angular_velocity = static_cast<float>(dir) * (max_speed / turning_radius); /// angular_v = speed / radius
-
-  cmd_vel.angular.set__z(angular_velocity); /// angular speed based on formula and turning direction
-
-
-  int pub_freq = 100;
-  rclcpp::Rate loop_rate(pub_freq); /// publishes 100 times per second
-  /// so count will be 100 * target angle / (speed / radius)  eg. 100*1/(0.2/2) = 
-  const int count = static_cast<int>(std::ceil(pub_freq*std::abs(target_angle)/std::abs(angular_velocity)));
-  /// this finds the number of loop iterations needed to turn based on the set angle from the goal ms, depending on angular vel
-
-  geometry_msgs::msg::PoseStamped pose_stamped; /// saves current pos before movement
-
-  for (int i = 0; (i<count) && rclcpp::ok(); ++i) 
-  {
-
-    pose_stamped.header = odom_->header; /// saves current odometry each cycle of loop
-    pose_stamped.pose = odom_->pose.pose; /// 
-
-    if (goal_handle->is_canceling()) 
-      {
-        result->set__pose(pose_stamped);
-        goal_handle->canceled(result);
-        RCLCPP_INFO(this->get_logger(), "Goal canceled");
-        cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{}); // puiblish 0 to stop robot
-        return; /// if canceled then save result then exit
-      }
-
-
-  
-    // Publish the command velocity
-    cmd_vel_publisher_->publish(cmd_vel);
+    angle_traveled = std::min(elapsed_seconds * fabs(angular_speed), angle_to_travel);
 
     // Publish feedback
-    /// angle currently travelled -  goal angle to find remaining  
-    const float progressed = std::abs(angular_velocity) * (static_cast<float>(i) / static_cast<float>(pub_freq));
-    remaining_angle_travel = (std::abs(target_angle) - progressed);
-
+    feedback->remaining_angle_travel = angle_to_travel - angle_traveled;
     goal_handle->publish_feedback(feedback);
-  
-    loop_rate.sleep(); /// to keep loop frequency
 
+    rate.sleep();
   }
 
-  // // after main movement loop, publish 0 to stop robot
-  cmd_vel_publisher_->publish(geometry_msgs::msg::Twist{});
+  // Stop the robot when done
+  cmd_vel_msg.linear.x = 0.0;
+  cmd_vel_msg.angular.z = 0.0;
+  cmd_vel_pub_->publish(cmd_vel_msg);
 
-
-
-  // Check if goal is done
-  if(rclcpp::ok())
+  // Fill result pose with latest odometry
+  if (odom_)
   {
-    result->set__pose(pose_stamped);
-    goal_handle->succeed(result);
-    RCLCPP_INFO(this->get_logger(), "Goal succeeded");
+    result->pose.header = odom_->header;
+    result->pose.pose = odom_->pose.pose;
+  }
+  else
+  {
+    RCLCPP_WARN(this->get_logger(), "Odometry data not available!");
   }
 
-
-
+  goal_handle->succeed(result);
+  RCLCPP_INFO(this->get_logger(), "Goal succeeded");
 }
-
-
-
-
-
-
-
-
-
-
 
 int main(int argc, char ** argv)
 {

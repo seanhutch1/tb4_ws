@@ -27,9 +27,9 @@ public:
 
       // Declare parameters
       this->declare_parameter<double>("following_distance", 1.0);
-      this->declare_parameter<float>("following_angle", 0);
-      this->declare_parameter<float>("angle_control_gain", 1.0);
-      this->declare_parameter<float>("distance_control_gain", 0.5);
+      this->declare_parameter<double>("following_angle", 0);
+      this->declare_parameter<double>("angle_control_gain", 1.0);
+      this->declare_parameter<double>("distance_control_gain", 0.5);
       
       // Get parameter values
       this->get_parameter("following_distance", following_distance_);
@@ -80,9 +80,9 @@ private:
     Define all private element variables to store parameters. 
   */
   double following_distance_;
-  float following_angle_;
-  float angle_control_gain_;
-  float distance_control_gain_;
+  double following_angle_;
+  double angle_control_gain_;
+  double distance_control_gain_;
 
 
   // Define Dynamic parameters handler
@@ -123,8 +123,9 @@ rcl_interfaces::msg::SetParametersResult
 PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> parameters)
 {
   std::lock_guard<std::recursive_mutex> cfl(mutex_);
-  rcl_interfaces::msg::SetParametersResult result;
-  for (auto parameter : parameters) {
+  rcl_interfaces::msg::SetParametersResult result; /// create the result object
+
+  for (auto parameter : parameters) { /// FOR loop over parameter changes
     const auto & param_type = parameter.get_type();
     const auto & param_name = parameter.get_name();
     if (param_type == ParameterType::PARAMETER_DOUBLE) {
@@ -143,9 +144,9 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
       store the updated value to the class variables defined in TASK 1 (Milestone # 1.1)
         
       double following_distance_;
-      float following_angle_;
-      float angle_control_gain_;
-      float distance_control_gain_;
+      double following_angle_;
+      double angle_control_gain_;
+      double distance_control_gain_;
 
       */
 

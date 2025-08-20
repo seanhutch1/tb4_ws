@@ -117,6 +117,24 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
     object in the environment as the input and publish a message on topic /cmd_vel to control the motion of
     the robot. 
   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }
 
 rcl_interfaces::msg::SetParametersResult 
@@ -163,7 +181,7 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
       if (name == "angle_control_gain") {
         angle_control_gain_ = parameter.as_double();
         if (angle_control_gain_ < 0.0) {
-          RCLCPP_WARN(this->get_logger(), "angle_control_gain cant be a negative, setting to 0");
+          RCLCPP_WARN(this->get_logger(), "angle_control_gain cant be a negative, setting it to 0");
           angle_control_gain_ = 0.0;
         }
         continue;
@@ -172,7 +190,7 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
       if (name == "distance_control_gain") {
         distance_control_gain_ = parameter.as_double();
         if (distance_control_gain_ < 0.0) {
-          RCLCPP_WARN(this->get_logger(), "distance_control_gain cant be negative, setting to 0");
+          RCLCPP_WARN(this->get_logger(), "distance_control_gain cant be negative, setting it to 0");
           distance_control_gain_ = 0.0;
         }
         continue;

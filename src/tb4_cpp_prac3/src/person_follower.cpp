@@ -118,12 +118,45 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
     the robot. 
   */
 
+  // 3.1 - closest valid object with std::min_element using a comparator that ignores invalid/too-close readings
+  
+  const float rmin = std::max(0.2f, scan_msg->range_min); /// clamp range_min to at least 0.2
+  const float rmax = scan_msg->range_max;                 /// max range
+
+  auto is_valid = [&](float r)
+  {  /// & capture clause to use local varibles by reference /// helper lambda function
+    return std::isfinite(r) && r >= rmin && r <= rmax; /// filter out invalids, <0.2,inf,>max
+  };
+
+  auto comp = [&](float a, float b) 
+  {
+
+    const bool va = is_valid(a); 
+    const bool vb = is_valid(b);    
+
+    if (va && vb) return a < b;      /// both valid, return True if a<b, new best found
+    if (va && !vb) return true;      /// any valid beats an invalid
+    if (!va && vb) return false;     /// no new best
+    return false;                    /// no new best
+  };
+
+  auto min_distance = std::min_element(scan_msg->ranges.begin(), scan_msg->ranges.end(), comp);
+  /// min_element scans the range and compares currrent to best. 
+  /// if custom comparator=True, current beats current best
+
+  /// iterator now points at smallest element in scan_msg. it is a pointer not a value
+  /// will point to first value if scan_msg is all invalid
 
 
 
-
-
-
+  // Tut3: Extracts the actual minimum value from the iterator obtained in the previous step.
+  float min_value = *min_distance; /// iterator --> actual value
+  
+  // Tut3: Calculates the index of the minimum value in the ranges vector by finding the distance
+  //        between the beginning of the vector and the iterator pointing to the minimum value.
+  int min_index = std::distance(scan_msg->ranges.begin(), min_distance);
+  
+  
 
 
 

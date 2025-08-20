@@ -206,12 +206,12 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
       */
 
           
-      if (name == "following_angle") {
+      if (param_name == "following_angle") {
         following_angle_ = parameter.as_double();
         continue;
       }
 
-      if (name == "angle_control_gain") {
+      if (param_name == "angle_control_gain") {
         angle_control_gain_ = parameter.as_double();
         if (angle_control_gain_ < 0.0) {
           RCLCPP_WARN(this->get_logger(), "angle_control_gain cant be a negative, setting it to 0");
@@ -220,7 +220,7 @@ PersonFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramet
         continue;
       }
 
-      if (name == "distance_control_gain") {
+      if (param_name == "distance_control_gain") {
         distance_control_gain_ = parameter.as_double();
         if (distance_control_gain_ < 0.0) {
           RCLCPP_WARN(this->get_logger(), "distance_control_gain cant be negative, setting it to 0");

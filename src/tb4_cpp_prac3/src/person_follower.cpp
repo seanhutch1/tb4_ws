@@ -4,6 +4,7 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+// #include <cmath>
 
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
@@ -137,6 +138,10 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
   /// iterator now points at smallest element in scan_msg. it is a pointer not a value
   /// will point to first value if scan_msg is all invalid
 
+  if (!is_valid(*min_distance)) { /// if min value isnt valid
+    RCLCPP_INFO(this->get_logger(), "No Object is Detected - no valid lidar ranges");
+    return;
+  }
 
 
 
@@ -160,24 +165,33 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
 
 
   const double bearing_offset = PI / 2.0;
-  double angle_R = angle_L + bearing_offset
+  double bearing_R = angle_L + bearing_offset;
+
+  RCLCPP_INFO(this->get_logger(), "Calculated: angle_L=%.3f rad from angle_min=%.3f inc=%.3f", angle_L,static_cast<double>(scan_msg->angle_min),static_cast<double>(scan_msg->angle_increment));
 
   /// robot is 0 facing forward, positive CCW and neg CW
   // eg. lidar angle = 0, robot should read pi/2 (90)
   /// eg. lidar angle = -90, robot should read 0
   /// eg. if lidar angle 180 (pi), robot should read 270 (normalises to -90)
 
+  RCLCPP_INFO(this->get_logger(), " bearing_R =%.3f rad (%.1f deg)", bearing_R, bearing_R * 180.0 / PI);
+  
   while (bearing_R > PI)  bearing_R -= 2.0 * PI; /// wraps any values to a range of -pi to pi
   while (bearing_R < -PI) bearing_R += 2.0 * PI; /// while statement incase is wrapped multiple times over 2pi
 
+  double range_R = static_cast<double>(min_value); /// distance is the min value calculated from 3.1
 
-
+  RCLCPP_INFO(this->get_logger(), "bearing_R wrapped=%.3f rad (%.1f deg), range=%.2f m", bearing_R, bearing_R * 180.0 / PI, range_R);
+  
+  
+  
   // MILESTONE #3.3. Write a Person Follow Reactive Control that takes the bearing and range information of the closest 
   // object in the environment as the input and publish a message on topic /cmd_vel to control the motion of
   // the robot. 
 
+  geometry_msgs::msg::Twist cmd_vel_msg;
 
-
+  
 
 
 

@@ -103,20 +103,10 @@ private:
 void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr scan_msg)
 {
   std::lock_guard<std::recursive_mutex> cfl(mutex_);
-  /*TODO TASKS
 
-    MILESTONE #3.1 - Process the received scan_msg to get the location of the closest object in robot's environment. 
-      NOTE: the four pillars of will be visible from the Lidar sensor, you have to remove the distance 
-      measurements of these four pillars by ignoring any measurement less than 0.2 meter. 
-
-    MILESTONE #3.2. You have to calculate the bearing and the range of the closest object with respect to the robot frame. You have
-    to check the LaserScan message definition, and how the Lidar sensor is mounted with respective to 
-    the robot's coordinate.
-
-    MILESTONE #3.3. Write a Person Follow Reactive Control that takes the bearing and range information of the closest 
-    object in the environment as the input and publish a message on topic /cmd_vel to control the motion of
-    the robot. 
-  */
+  // MILESTONE #3.1 - Process the received scan_msg to get the location of the closest object in robot's environment. 
+  //   NOTE: the four pillars of will be visible from the Lidar sensor, you have to remove the distance 
+  //   measurements of these four pillars by ignoring any measurement less than 0.2 meter. 
 
   // 3.1 - closest valid object with std::min_element using a comparator that ignores invalid/too-close readings
   
@@ -149,6 +139,7 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
 
 
 
+
   // Tut3: Extracts the actual minimum value from the iterator obtained in the previous step.
   float min_value = *min_distance; /// iterator --> actual value
   
@@ -156,6 +147,35 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
   //        between the beginning of the vector and the iterator pointing to the minimum value.
   int min_index = std::distance(scan_msg->ranges.begin(), min_distance);
   
+
+
+  // MILESTONE #3.2. You have to calculate the bearing and the range of the closest object with respect to the robot frame. You have
+  // to check the LaserScan message definition, and how the Lidar sensor is mounted with respective to 
+  // the robot's coordinate.
+
+  /// From prac3 sheet: angle L = angle min + angle increment × index
+  double angle_L = static_cast<double>(scan_msg->angle_min) + static_cast<double>(scan_msg->angle_increment) * static_cast<double>(min_index);
+
+  /// angle_L is now the angle of the closest object in the Lidar sensor frame axis.
+
+  
+
+
+
+
+
+
+
+
+  // MILESTONE #3.3. Write a Person Follow Reactive Control that takes the bearing and range information of the closest 
+  // object in the environment as the input and publish a message on topic /cmd_vel to control the motion of
+  // the robot. 
+
+
+
+
+
+
   
 
 

@@ -1,0 +1,32 @@
+[0.037s] Invoking command in '/home/eecms/tb4_ws/build/tb4_cpp_prac3': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eecms/tb4_ws/build/tb4_cpp_prac3 -- -j6 -l6
+[0.184s] [35m[1mConsolidate compiler generated dependencies of target person_follower[0m
+[0.209s] [ 50%] [32mBuilding CXX object CMakeFiles/person_follower.dir/src/person_follower.cpp.o[0m
+[0.507s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:209:37:[m[K [01;35m[Kwarning: [m[Kmissing terminating " character
+[0.507s]   209 |     RCLCPP_INFO(this->get_logger(), [01;35m[K"[m[K
+[0.507s]       |                                     [01;35m[K^[m[K
+[0.507s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:218:5:[m[K [01;35m[Kwarning: [m[Kmissing terminating " character
+[0.508s]   218 |     [01;35m[K"[m[K, cmd_vel_msg.linear.x, cmd_vel_msg.angular.z,distance_control_gain_,angle_control_gain_,range_R,bearing_R,following_distance_,following_angle_);
+[0.508s]       |     [01;35m[K^[m[K
+[0.508s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:309:1:[m[K [01;31m[Kerror: [m[Kunterminated argument list invoking macro "RCLCPP_INFO"
+[0.508s]   309 | 
+[0.508s]       | [01;31m[K^[m[K
+[2.674s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:[m[K In member function ‘[01m[Kvoid PersonFollower::scan_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.674s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:209:5:[m[K [01;31m[Kerror: [m[K‘[01m[KRCLCPP_INFO[m[K’ was not declared in this scope
+[2.674s]   209 |     [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "
+[2.674s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[2.674s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:209:16:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[2.675s]   209 |     RCLCPP_INFO[01;31m[K([m[Kthis->get_logger(), "
+[2.675s]       |                [01;31m[K^[m[K
+[2.675s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:203:3:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[2.675s]   203 |   [01;36m[K{[m[K
+[2.675s]       |   [01;36m[K^[m[K
+[2.675s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:209:16:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[2.675s]   209 |     RCLCPP_INFO[01;31m[K([m[Kthis->get_logger(), "
+[2.675s]       |                [01;31m[K^[m[K
+[2.675s] [01m[K/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/person_follower.cpp:105:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[2.675s]   105 | [01;36m[K{[m[K
+[2.675s]       | [01;36m[K^[m[K
+[5.214s] gmake[2]: *** [CMakeFiles/person_follower.dir/build.make:76: CMakeFiles/person_follower.dir/src/person_follower.cpp.o] Error 1
+[5.214s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/person_follower.dir/all] Error 2
+[5.214s] gmake: *** [Makefile:146: all] Error 2
+[5.219s] Invoked command in '/home/eecms/tb4_ws/build/tb4_cpp_prac3' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eecms/tb4_ws/build/tb4_cpp_prac3 -- -j6 -l6

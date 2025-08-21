@@ -189,22 +189,53 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
   // object in the environment as the input and publish a message on topic /cmd_vel to control the motion of
   // the robot. 
 
-  geometry_msgs::msg::Twist cmd_vel_msg;
+  geometry_msgs::msg::Twist cmd_vel_msg; /// builds velocity command
+
+
+
+
 
   
-
-
-
   
+  
+  
+  if(min_value < 12)
+  {
+    // Tut3:  Assigns angular and linear velocities to the cmd_vel_msg based on proportional control
+    //        using gains (angle_control_gain_ and following_distance_control_gain_).
+
+    cmd_vel_msg.linear.x = distance_control_gain_ * (range_R - following_distance_);
+    cmd_vel_msg.angular.z = angle_control_gain_ * (bearing_R - following_angle_);
+    RCLCPP_INFO(
+      this->get_logger(),
+      "cmd linear.x = %.3f\n"
+      "angular.z = %.3f\n"
+      "dist control gain = %.3f\n"
+      "angle control gain = %.3f\n"
+      "range R = %.3f\n"
+      "bearing R = %.3f\n"
+      "follow dist = %.3f\n"
+      "follow angle = %.3f",
+      cmd_vel_msg.linear.x,
+      cmd_vel_msg.angular.z,
+      distance_control_gain_,
+      angle_control_gain_,
+      range_R,
+      bearing_R,
+      following_distance_,
+      following_angle_
+    );
+
+  }
+  else
+  {
+    RCLCPP_INFO(this->get_logger(), "No Object is Detected");
+    cmd_vel_msg.linear.x = 0.0;
+  }
 
 
-
-
-
-
-
-
-
+  // Publishes the computed velocity command (cmd_vel_msg) to control the robot’s movement.
+  cmd_vel_publisher_->publish(cmd_vel_msg);
 
   
 }

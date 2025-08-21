@@ -167,21 +167,21 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
   const double bearing_offset = PI / 2.0;
   double bearing_R = angle_L + bearing_offset;
 
-  RCLCPP_INFO(this->get_logger(), "Calculated: angle_L=%.3f rad from angle_min=%.3f inc=%.3f", angle_L,static_cast<double>(scan_msg->angle_min),static_cast<double>(scan_msg->angle_increment));
+  RCLCPP_INFO(this->get_logger(), " angle_L = %.3f, angle_min = %.3f, angle_increment = %.3f.", angle_L,static_cast<double>(scan_msg->angle_min),static_cast<double>(scan_msg->angle_increment));
 
   /// robot is 0 facing forward, positive CCW and neg CW
   // eg. lidar angle = 0, robot should read pi/2 (90)
   /// eg. lidar angle = -90, robot should read 0
   /// eg. if lidar angle 180 (pi), robot should read 270 (normalises to -90)
 
-  RCLCPP_INFO(this->get_logger(), " bearing_R =%.3f rad (%.1f deg)", bearing_R, bearing_R * 180.0 / PI);
+  RCLCPP_INFO(this->get_logger(), " bearing_R = %.3f, (%.1f deg)", bearing_R, bearing_R * 180.0 / PI);
   
   while (bearing_R > PI)  bearing_R -= 2.0 * PI; /// wraps any values to a range of -pi to pi
   while (bearing_R < -PI) bearing_R += 2.0 * PI; /// while statement incase is wrapped multiple times over 2pi
 
   double range_R = static_cast<double>(min_value); /// distance is the min value calculated from 3.1
 
-  RCLCPP_INFO(this->get_logger(), "bearing_R wrapped=%.3f rad (%.1f deg), range=%.2f m", bearing_R, bearing_R * 180.0 / PI, range_R);
+  RCLCPP_INFO(this->get_logger(), " bearing_R wrapped = %.3f (%.1f deg), range = %.2f m", bearing_R, bearing_R * 180.0 / PI, range_R);
   
   
   
@@ -208,14 +208,14 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
     cmd_vel_msg.angular.z = angle_control_gain_ * (bearing_R - following_angle_);
     RCLCPP_INFO(
       this->get_logger(),
-      "cmd linear.x = %.3f\n"
-      "angular.z = %.3f\n"
-      "dist control gain = %.3f\n"
-      "angle control gain = %.3f\n"
-      "range R = %.3f\n"
-      "bearing R = %.3f\n"
-      "follow dist = %.3f\n"
-      "follow angle = %.3f",
+      "\n\ncmd linear.x = %.3f\n"
+      "cmd angular.z = %.3f\n\n"
+      "distance_control_gain_ = %.3f\n"
+      "angle_control_gain_ = %.3f\n"
+      "range_R = %.3f\n"
+      "bearing_R = %.3f\n"
+      "following_distance_ = %.3f\n"
+      "following_angle_ = %.3f",
       cmd_vel_msg.linear.x,
       cmd_vel_msg.angular.z,
       distance_control_gain_,

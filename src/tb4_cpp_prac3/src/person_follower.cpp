@@ -111,8 +111,9 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
 
   // 3.1 - closest valid object with std::min_element using a comparator that ignores invalid/too-close readings
   
-  const float rmin = std::max(0.2f, scan_msg->range_min); /// clamp range_min to at least 0.2
-  const float rmax = scan_msg->range_max;                 /// max range
+  const float rmin = std::max(0.2f, scan_msg->range_min);  /// clamp range_min to at least 0.2
+  const float rmax = scan_msg->range_max;                  /// max range
+
 
   auto is_valid = [&](float r)
   {  /// & capture clause to use local varibles by reference /// helper lambda function

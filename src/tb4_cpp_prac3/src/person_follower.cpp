@@ -158,12 +158,17 @@ void PersonFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr 
 
   /// angle_L is now the angle of the closest object in the Lidar sensor frame axis.
 
-  
 
+  const double bearing_offset = PI / 2.0;
+  double angle_R = angle_L + bearing_offset
 
+  /// robot is 0 facing forward, positive CCW and neg CW
+  // eg. lidar angle = 0, robot should read pi/2 (90)
+  /// eg. lidar angle = -90, robot should read 0
+  /// eg. if lidar angle 180 (pi), robot should read 270 (normalises to -90)
 
-
-
+  while (bearing_R > PI)  bearing_R -= 2.0 * PI; /// wraps any values to a range of -pi to pi
+  while (bearing_R < -PI) bearing_R += 2.0 * PI; /// while statement incase is wrapped multiple times over 2pi
 
 
 

@@ -64,6 +64,7 @@ public:
           std::bind(&PersonFollower::scan_callback, this, _1)
       );
     }
+    
 private:
 
   // Define a command velocity publisher

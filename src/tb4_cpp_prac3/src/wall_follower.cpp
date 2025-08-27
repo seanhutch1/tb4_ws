@@ -202,7 +202,7 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
 
   RCLCPP_INFO(this->get_logger(), " bearing_R wrapped = %.3f (%.1f deg), range = %.2f m", bearing_R, bearing_R * 180.0 / PI, range_R);
 
-    /// this gives use bearing and range of closest object
+    /// this gives use bearing and range of closest object (FROM PERSON FOLLOWER)
     /// bearing_R
     /// range_R
 
@@ -239,6 +239,23 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
     */ 
 
     auto min_angle = bearing_R; ///  min angle??
+
+    // following_angle_;
+    // following_distance_;
+    // wall_side_;     /// -1 or 1
+    // buffer_zone_;
+    // forward_velocity_;
+    // angle_control_gain_1_;
+    // angle_control_gain_2_;
+    // distance_control_gain_;
+
+    /// bearing_R = min_value
+    /// range_R
+
+    // theta_tilde = theta_zero - pi/2 if wall side 1, + if wall side -1
+    //
+
+
     if(min_value<12) 
     {
         /* The robot is moving towards to the closed target at speed of forward_velocity_*/
@@ -271,27 +288,6 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
     }
     //publish the command velocity
     cmd_vel_publisher_->publish(cmd_vel_msg);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

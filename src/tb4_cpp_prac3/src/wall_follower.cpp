@@ -27,7 +27,7 @@ public:
         //declare params
         this->declare_parameter<double>("following_angle", 0.0);
         this->declare_parameter<double>("following_distance", 1.0);
-        this->declare_parameter<int64_t>("wall_side", 1.0);
+        this->declare_parameter<int64_t>("wall_side", 1);
         this->declare_parameter<double>("buffer_zone", 1.0);
         this->declare_parameter<double>("forward_velocity", 1.0);
         this->declare_parameter<double>("angle_control_gain_1", 1.0);
@@ -35,8 +35,8 @@ public:
         this->declare_parameter<double>("distance_control_gain", 0.5);
 
         // get parameter values
-        this->get_parameter("following_distance", following_angle_);
-        this->get_parameter("following_angle", following_distance_);
+        this->get_parameter("following_distance", following_distance_); 
+        this->get_parameter("following_angle", following_angle_);
         this->get_parameter("wall_side", wall_side_);
         this->get_parameter("buffer_zone", buffer_zone_);
         this->get_parameter("forward_velocity", forward_velocity_);

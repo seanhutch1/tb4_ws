@@ -238,7 +238,7 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
     If min_value<12, the lidar sensor has a valid measurement. 
     */ 
 
-    auto min_angle = bearing_R; ///  min angle??
+    // auto min_angle = bearing_R; ///  min angle??
 
     // following_angle_;
     // following_distance_;
@@ -253,39 +253,105 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
     /// range_R
 
     // theta_tilde = theta_zero - pi/2 if wall side 1, + if wall side -1
+    // theta_zero = bearing_R = min_value
     //
+
+    const double theta_zero_offs = PI / 2.0;
+    double theta_tilde;
+
+    if(wall_side_ == 1){
+        theta_tilde = bearing_R - theta_zero_offs;
+    }
+    else if (wall_side_ == -1)
+    {
+        theta_tilde = bearing_R + theta_zero_offs;
+    }
+    else {
+        RCLCPP_INFO(this->get_logger(), "wall_side_ must be -1 or 1");
+
+    }
+    
+
 
 
     if(min_value<12) 
     {
         /* The robot is moving towards to the closed target at speed of forward_velocity_*/
-        if(min_value>(following_distance_+buffer_zone_)){
-            if(abs(min_angle)>PI/4.0){
-                if(min_angle>PI/4.0)
-                    cmd_vel_msg.angular.z = 1.0;
-                else
-                    cmd_vel_msg.angular.z = -1.0;
-            }
-            else{
-                cmd_vel_msg.angular.z = 0;
-                cmd_vel_msg.linear.x = forward_velocity_;
-            }
+        if( range_R > ( following_distance_ + buffer_zone_ ) ) {
+
+            // if(abs(min_angle)>PI/4.0){
+            //     if(min_angle>PI/4.0)
+            //         cmd_vel_msg.angular.z = 1.0;
+            //     else
+            //         cmd_vel_msg.angular.z = -1.0;
+            // }
+            // else{
+            //     cmd_vel_msg.angular.z = 0;
+            //     cmd_vel_msg.linear.x = forward_velocity_;
+            // }
+
+            cmd_vel_msg.linear.x  = forward_velocity_;
+            cmd_vel_msg.angular.z = angle_control_gain_1_ * bearing_R; /// simply face the wall
+
+
         }
         // drive along the wall at a fixed distance
         else{ 
-            if(wall_side_>0)
-                cmd_vel_msg.angular.z = angle_control_gain_1_*(min_angle - following_angle_) + angle_control_gain_2_*(min_value - following_distance_);
-            else
-                cmd_vel_msg.angular.z = angle_control_gain_1_*(min_angle - following_angle_) - angle_control_gain_2_*(min_value - following_distance_);
+
+            // if(wall_side_>0)
+            //     cmd_vel_msg.angular.z = angle_control_gain_1_*(min_angle - following_angle_) + angle_control_gain_2_*(min_value - following_distance_);
+            // else
+            //     cmd_vel_msg.angular.z = angle_control_gain_1_*(min_angle - following_angle_) - angle_control_gain_2_*(min_value - following_distance_);
                 
-            cmd_vel_msg.linear.x = forward_velocity_ + distance_control_gain_*(min_value - following_distance_);
+            // cmd_vel_msg.linear.x = forward_velocity_ + distance_control_gain_*(min_value - following_distance_);
+            
+
+
+            const double th_abs = std::fabs(theta_tilde);
+
+            if(wall_side_ == 1){
+                
+                if(th_abs > PI/10.0){
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R) *(std::sin(theta_tilde) / theta_tilde);
+                }
+                else{
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R);
+                }
+
+            }
+            else  if (wall_side_ == -1){
+
+                if(th_abs > PI/10.0){
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R) *(std::sin(theta_tilde) / theta_tilde);
+                }
+                else{
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R);
+                }
+                
+
+
+            }
+            else{
+
+                RCLCPP_INFO(this->get_logger(), "debug1");
+            }
+
+            cmd_vel_msg.linear.x  = forward_velocity_; //either wall side both constant velocity forward
+
         }
+
+
+
+
+
     }
     else // No valid measurement is available, move forward at a constant speed.
     {
         RCLCPP_INFO(this->get_logger(), "No Object is Detected");
         cmd_vel_msg.linear.x = 0.2;
     }
+
+
     //publish the command velocity
     cmd_vel_publisher_->publish(cmd_vel_msg);
 
@@ -371,6 +437,27 @@ WallFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> parameter
     }
 
     }
+
+
+    /// dynamic updtes for wall side as an integer
+    if (param_type == ParameterType::PARAMETER_INTEGER && param_name == "wall_side") {
+        
+        wall_side_ = parameter.as_int();
+        if (wall_side_ != -1 && wall_side_ != 1) {
+            RCLCPP_WARN(this->get_logger(), "wall_side must be -1 or 1, setting it to 1");
+            wall_side_ = 1;
+        }
+        
+        continue;
+
+    }
+
+
+
+
+
+
+
   }
   result.successful = true;
   return result;

@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 #include <algorithm>
+#include <cmath>
 #include <vector>
 
 #include "rclcpp/rclcpp.hpp"
@@ -26,9 +27,9 @@ public:
 
         //declare params
         this->declare_parameter<double>("following_angle", 0.0);
-        this->declare_parameter<double>("following_distance", 1.0);
+        this->declare_parameter<double>("following_distance", 0.8);
         this->declare_parameter<int64_t>("wall_side", 1);
-        this->declare_parameter<double>("buffer_zone", 1.0);
+        this->declare_parameter<double>("buffer_zone", 0.5);
         this->declare_parameter<double>("forward_velocity", 1.0);
         this->declare_parameter<double>("angle_control_gain_1", 1.0);
         this->declare_parameter<double>("angle_control_gain_2", 1.0);
@@ -47,7 +48,7 @@ public:
         // log parameter values
         RCLCPP_INFO(this->get_logger(), "following_angle: %.2f", following_angle_);
         RCLCPP_INFO(this->get_logger(), "following_distance: %.2f", following_distance_);
-        RCLCPP_INFO(this->get_logger(), "wall_side: %d", wall_side_);
+        RCLCPP_INFO(this->get_logger(), "wall_side: %ld", wall_side_);
         RCLCPP_INFO(this->get_logger(), "buffer_zone: %.2f", buffer_zone_);
         RCLCPP_INFO(this->get_logger(), "forward_velocity: %.2f", forward_velocity_);
         RCLCPP_INFO(this->get_logger(), "angle_control_gain_1: %.2f", angle_control_gain_1_);
@@ -186,21 +187,21 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
   const double bearing_offset = PI / 2.0;
   double bearing_R = angle_L + bearing_offset;
 
-  RCLCPP_INFO(this->get_logger(), " angle_L = %.3f, angle_min = %.3f, angle_increment = %.3f.", angle_L,static_cast<double>(scan_msg->angle_min),static_cast<double>(scan_msg->angle_increment));
+//   RCLCPP_INFO(this->get_logger(), " angle_L = %.3f, angle_min = %.3f, angle_increment = %.3f.", angle_L,static_cast<double>(scan_msg->angle_min),static_cast<double>(scan_msg->angle_increment));
 
   /// robot is 0 facing forward, positive CCW and neg CW
   // eg. lidar angle = 0, robot should read pi/2 (90)
   /// eg. lidar angle = -90, robot should read 0
   /// eg. if lidar angle 180 (pi), robot should read 270 (normalises to -90)
 
-  RCLCPP_INFO(this->get_logger(), " bearing_R = %.3f, (%.1f deg)", bearing_R, bearing_R * 180.0 / PI);
+//   RCLCPP_INFO(this->get_logger(), " bearing_R = %.3f, (%.1f deg)", bearing_R, bearing_R * 180.0 / PI);
   
   while (bearing_R > PI)  bearing_R -= 2.0 * PI; /// wraps any values to a range of -pi to pi
   while (bearing_R < -PI) bearing_R += 2.0 * PI; /// while statement incase is wrapped multiple times over 2pi
 
   double range_R = static_cast<double>(min_value); /// distance is the min value calculated from 3.1
 
-  RCLCPP_INFO(this->get_logger(), " bearing_R wrapped = %.3f (%.1f deg), range = %.2f m", bearing_R, bearing_R * 180.0 / PI, range_R);
+//   RCLCPP_INFO(this->get_logger(), " bearing_R wrapped = %.3f (%.1f deg), range = %.2f m", bearing_R, bearing_R * 180.0 / PI, range_R);
 
     /// this gives use bearing and range of closest object (FROM PERSON FOLLOWER)
     /// bearing_R
@@ -257,7 +258,10 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
     //
 
     const double theta_zero_offs = PI / 2.0;
-    double theta_tilde;
+    double theta_tilde = 0.0;
+
+    double debug_number = 0.0;
+
 
     if(wall_side_ == 1){
         theta_tilde = bearing_R - theta_zero_offs;
@@ -274,7 +278,7 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
 
 
 
-    if(min_value<12) 
+    if(range_R<12) 
     {
         /* The robot is moving towards to the closed target at speed of forward_velocity_*/
         if( range_R > ( following_distance_ + buffer_zone_ ) ) {
@@ -289,8 +293,9 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
             //     cmd_vel_msg.angular.z = 0;
             //     cmd_vel_msg.linear.x = forward_velocity_;
             // }
-
-            cmd_vel_msg.linear.x  = forward_velocity_;
+            debug_number = 33.0;
+            RCLCPP_INFO(this->get_logger(), " range_R  is > ( following_distance_ + buffer_zone_ )");
+            cmd_vel_msg.linear.x  = forward_velocity_/2.0;
             cmd_vel_msg.angular.z = angle_control_gain_1_ * bearing_R; /// simply face the wall
 
 
@@ -311,11 +316,13 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
 
             if(wall_side_ == 1){
                 
-                if(th_abs > PI/10.0){
+                if(th_abs > PI/10.0){ /// = 0.314..
                     cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R) *(std::sin(theta_tilde) / theta_tilde);
+                    debug_number = 1.0;
                 }
                 else{
                     cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R);
+                    debug_number = 2.0;
                 }
 
             }
@@ -323,16 +330,19 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
 
                 if(th_abs > PI/10.0){
                     cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R) *(std::sin(theta_tilde) / theta_tilde);
+                    debug_number = 3.0;
                 }
                 else{
                     cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R);
+                    debug_number = 4.0;
                 }
                 
 
 
             }
             else{
-
+                
+                debug_number = 55.0;
                 RCLCPP_INFO(this->get_logger(), "debug1");
             }
 
@@ -342,11 +352,55 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
 
 
 
+        RCLCPP_INFO(
+        this->get_logger(),
+        "\n\ncmd linear.x = %.3f\n"
+        "cmd angular.z = %.3f\n\n"
+        "// Gains:\ndistance_control_gain_ = %.3f\n"
+        "angle_control_gain_1_ = %.3f\n"
+        "angle_control_gain_2_ = %.3f\n\n"
+        "// Robot sensing: \n range_R = %.3f\n"
+        "bearing_R = %.3f\n\n"
+        "// Other Params: \nwall_side_ = %ld\n"
+        "theta_tilde = %.3f\n"
+        "buffer_zone_ = %.3f\n"
+        "debug_number = %.3f\n"
+        "following_distance_ = %.3f\n"
+        "following_angle_ = %.3f\n\n"
+        "// Debug:\nrange_R = %.3f\n"
+        "(following_distance_+buffer_zone_) = %.3f\n",
+        cmd_vel_msg.linear.x,
+        cmd_vel_msg.angular.z,
+        distance_control_gain_,
+        angle_control_gain_1_,
+        angle_control_gain_2_,
+        range_R,
+        bearing_R,
+        wall_side_,
+        theta_tilde,
+        buffer_zone_,
+        debug_number,
+        following_distance_,
+        following_angle_,
+        range_R,
+        ( following_distance_ + buffer_zone_ )
+        );
+    
+
+
+
+
+
+
+    
+
+
 
 
     }
     else // No valid measurement is available, move forward at a constant speed.
     {
+        debug_number = 25.0;
         RCLCPP_INFO(this->get_logger(), "No Object is Detected");
         cmd_vel_msg.linear.x = 0.2;
     }
@@ -354,6 +408,10 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
 
     //publish the command velocity
     cmd_vel_publisher_->publish(cmd_vel_msg);
+
+
+
+
 
 
 
@@ -447,7 +505,7 @@ WallFollower::dynamicParametersCallback(std::vector<rclcpp::Parameter> parameter
             RCLCPP_WARN(this->get_logger(), "wall_side must be -1 or 1, setting it to 1");
             wall_side_ = 1;
         }
-        
+
         continue;
 
     }

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/robotai/tb4_ws/src/tb4_cpp_prac3/src/wall_follower.cpp" "CMakeFiles/wall_follower.dir/src/wall_follower.cpp.o" "gcc" "CMakeFiles/wall_follower.dir/src/wall_follower.cpp.o.d"
+  "/home/eecms/tb4_ws/src/tb4_cpp_prac3/src/wall_follower.cpp" "CMakeFiles/wall_follower.dir/src/wall_follower.cpp.o" "gcc" "CMakeFiles/wall_follower.dir/src/wall_follower.cpp.o.d"
   )
 
 # Targets to which this target links.

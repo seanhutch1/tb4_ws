@@ -1,0 +1,85 @@
+[0.024s] Invoking command in '/home/eecms/tb4_ws/build/tb4_cpp_prac1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eecms/tb4_ws/src/tb4_cpp_prac1 -DCMAKE_INSTALL_PREFIX=/home/eecms/tb4_ws/install/tb4_cpp_prac1
+[0.508s] -- The C compiler identification is GNU 12.3.0
+[0.799s] -- The CXX compiler identification is GNU 12.3.0
+[0.820s] -- Detecting C compiler ABI info
+[0.961s] -- Detecting C compiler ABI info - done
+[0.967s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.967s] -- Detecting C compile features
+[0.967s] -- Detecting C compile features - done
+[0.970s] -- Detecting CXX compiler ABI info
+[1.152s] -- Detecting CXX compiler ABI info - done
+[1.169s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.170s] -- Detecting CXX compile features
+[1.174s] -- Detecting CXX compile features - done
+[1.301s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.614s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.819s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[2.216s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.226s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.248s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.350s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.394s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.528s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.538s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.842s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.892s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.941s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.975s] -- Looking for pthread.h
+[3.086s] -- Looking for pthread.h - found
+[3.086s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.249s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.257s] -- Found Threads: TRUE  
+[3.505s] -- Found irobot_create_msgs: 2.1.0 (/opt/ros/humble/share/irobot_create_msgs/cmake)
+[3.843s] -- Found std_srvs: 4.9.0 (/opt/ros/humble/share/std_srvs/cmake)
+[3.876s] -- Found rclcpp_action: 16.0.14 (/opt/ros/humble/share/rclcpp_action/cmake)
+[3.894s] -- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[3.933s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.058s] -- Added test 'copyright' to check source files copyright and LICENSE
+[4.058s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.058s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/eecms/tb4_ws/src/tb4_cpp_prac1/include>
+[4.058s] -- Configured cppcheck exclude dirs and/or files: 
+[4.060s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[4.060s] -- Configured cpplint exclude dirs and/or files: 
+[4.060s] -- Added test 'lint_cmake' to check CMake code style
+[4.061s] -- Added test 'uncrustify' to check C / C++ code style
+[4.061s] -- Configured uncrustify additional arguments: 
+[4.063s] -- Added test 'xmllint' to check XML markup files
+[4.064s] -- Configuring done
+[4.093s] -- Generating done
+[4.103s] -- Build files have been written to: /home/eecms/tb4_ws/build/tb4_cpp_prac1
+[4.119s] Invoked command in '/home/eecms/tb4_ws/build/tb4_cpp_prac1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eecms/tb4_ws/src/tb4_cpp_prac1 -DCMAKE_INSTALL_PREFIX=/home/eecms/tb4_ws/install/tb4_cpp_prac1
+[4.120s] Invoking command in '/home/eecms/tb4_ws/build/tb4_cpp_prac1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eecms/tb4_ws/build/tb4_cpp_prac1 -- -j6 -l6
+[4.206s] [ 16%] [32mBuilding CXX object CMakeFiles/tb4_cpp_node.dir/src/tb4_cpp_node.cpp.o[0m
+[18.266s] [ 33%] [32m[1mLinking CXX executable tb4_cpp_node[0m
+[19.340s] [ 33%] Built target tb4_cpp_node
+[19.378s] [ 50%] [32mBuilding CXX object CMakeFiles/tb4_cpp_action_server.dir/src/tb4_cpp_action_server.cpp.o[0m
+[31.386s] [ 66%] [32m[1mLinking CXX executable tb4_cpp_action_server[0m
+[31.867s] [ 66%] Built target tb4_cpp_action_server
+[31.891s] [ 83%] [32mBuilding CXX object CMakeFiles/tb4_cpp_srv_server.dir/src/tb4_cpp_srv_server.cpp.o[0m
+[36.839s] [100%] [32m[1mLinking CXX executable tb4_cpp_srv_server[0m
+[37.096s] [100%] Built target tb4_cpp_srv_server
+[37.112s] Invoked command in '/home/eecms/tb4_ws/build/tb4_cpp_prac1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eecms/tb4_ws/build/tb4_cpp_prac1 -- -j6 -l6
+[37.113s] Invoking command in '/home/eecms/tb4_ws/build/tb4_cpp_prac1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eecms/tb4_ws/build/tb4_cpp_prac1
+[37.119s] -- Install configuration: ""
+[37.119s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/lib/tb4_cpp_prac1/tb4_cpp_node
+[37.122s] -- Set runtime path of "/home/eecms/tb4_ws/install/tb4_cpp_prac1/lib/tb4_cpp_prac1/tb4_cpp_node" to ""
+[37.123s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/lib/tb4_cpp_prac1/tb4_cpp_srv_server
+[37.124s] -- Set runtime path of "/home/eecms/tb4_ws/install/tb4_cpp_prac1/lib/tb4_cpp_prac1/tb4_cpp_srv_server" to ""
+[37.124s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/lib/tb4_cpp_prac1/tb4_cpp_action_server
+[37.128s] -- Set runtime path of "/home/eecms/tb4_ws/install/tb4_cpp_prac1/lib/tb4_cpp_prac1/tb4_cpp_action_server" to ""
+[37.132s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/ament_index/resource_index/package_run_dependencies/tb4_cpp_prac1
+[37.132s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/ament_index/resource_index/parent_prefix_path/tb4_cpp_prac1
+[37.132s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/environment/ament_prefix_path.sh
+[37.132s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/environment/ament_prefix_path.dsv
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/environment/path.sh
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/environment/path.dsv
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/local_setup.bash
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/local_setup.sh
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/local_setup.zsh
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/local_setup.dsv
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.dsv
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/ament_index/resource_index/packages/tb4_cpp_prac1
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/cmake/tb4_cpp_prac1Config.cmake
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/cmake/tb4_cpp_prac1Config-version.cmake
+[37.133s] -- Installing: /home/eecms/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.xml
+[37.140s] Invoked command in '/home/eecms/tb4_ws/build/tb4_cpp_prac1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eecms/tb4_ws/build/tb4_cpp_prac1

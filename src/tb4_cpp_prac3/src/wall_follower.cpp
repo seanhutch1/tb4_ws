@@ -27,13 +27,13 @@ public:
 
         //declare params
         this->declare_parameter<double>("following_angle", 0.0);
-        this->declare_parameter<double>("following_distance", 0.8);
+        this->declare_parameter<double>("following_distance", 0.3);
         this->declare_parameter<int64_t>("wall_side", 1);
-        this->declare_parameter<double>("buffer_zone", 0.5);
+        this->declare_parameter<double>("buffer_zone", 0.3);
         this->declare_parameter<double>("forward_velocity", 1.0);
-        this->declare_parameter<double>("angle_control_gain_1", 1.0);
-        this->declare_parameter<double>("angle_control_gain_2", 1.0);
-        this->declare_parameter<double>("distance_control_gain", 0.5);
+        this->declare_parameter<double>("angle_control_gain_1", 0.2);
+        this->declare_parameter<double>("angle_control_gain_2", 2.0);
+        this->declare_parameter<double>("distance_control_gain", 0.8);
 
         // get parameter values
         this->get_parameter("following_distance", following_distance_); 
@@ -354,7 +354,7 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
 
         RCLCPP_INFO(
         this->get_logger(),
-        "\n\ncmd linear.x = %.3f\n"
+        "//////////////////////////////////////////////\n\ncmd linear.x = %.3f\n"
         "cmd angular.z = %.3f\n\n"
         "// Gains:\ndistance_control_gain_ = %.3f\n"
         "angle_control_gain_1_ = %.3f\n"

@@ -27,7 +27,7 @@ public:
       */
 
       // Declare parameters
-      this->declare_parameter<double>("following_distance", 1.0);
+      this->declare_parameter<double>("following_distance", 0.3);
       this->declare_parameter<double>("following_angle", 0);
       this->declare_parameter<double>("angle_control_gain", 1.0);
       this->declare_parameter<double>("distance_control_gain", 0.5);

@@ -26,14 +26,14 @@ public:
         */
 
         //declare params
-        this->declare_parameter<double>("following_angle", 0.0);
-        this->declare_parameter<double>("following_distance", 0.3);
-        this->declare_parameter<int64_t>("wall_side", 1);
+        this->declare_parameter<double>("following_angle", 2.0); // HELLO
+        this->declare_parameter<double>("following_distance", 0.4);
+        this->declare_parameter<int64_t>("wall_side", -1);
         this->declare_parameter<double>("buffer_zone", 0.3);
-        this->declare_parameter<double>("forward_velocity", 1.0);
-        this->declare_parameter<double>("angle_control_gain_1", 0.2);
-        this->declare_parameter<double>("angle_control_gain_2", 2.0);
-        this->declare_parameter<double>("distance_control_gain", 0.8);
+        this->declare_parameter<double>("forward_velocity", 0.1);
+        this->declare_parameter<double>("angle_control_gain_1", 1.5);
+        this->declare_parameter<double>("angle_control_gain_2", 1.0);
+        this->declare_parameter<double>("distance_control_gain", 1.0);
 
         // get parameter values
         this->get_parameter("following_distance", following_distance_); 
@@ -317,11 +317,11 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
             if(wall_side_ == 1){
                 
                 if(th_abs > PI/10.0){ /// = 0.314..
-                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R) *(std::sin(theta_tilde) / theta_tilde);
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R-following_distance_)*distance_control_gain_ *(std::sin(theta_tilde) / theta_tilde);
                     debug_number = 1.0;
                 }
                 else{
-                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R);
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) + angle_control_gain_2_ * (range_R-following_distance_)*distance_control_gain_;
                     debug_number = 2.0;
                 }
 
@@ -329,11 +329,11 @@ void WallFollower::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr sc
             else  if (wall_side_ == -1){
 
                 if(th_abs > PI/10.0){
-                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R) *(std::sin(theta_tilde) / theta_tilde);
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R-following_distance_)*distance_control_gain_ *(std::sin(theta_tilde) / theta_tilde);
                     debug_number = 3.0;
                 }
                 else{
-                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R);
+                    cmd_vel_msg.angular.z = (angle_control_gain_1_ * theta_tilde) - angle_control_gain_2_ * (range_R-following_distance_)*distance_control_gain_;
                     debug_number = 4.0;
                 }
                 

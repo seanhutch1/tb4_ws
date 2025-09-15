@@ -122,7 +122,7 @@ namespace iar_amcl
                         xhit = xs + obs_range * cos(thetas + obs_bearing); ///  use trig to calc the angle and dist from the lidars pose.
                         yhit = ys + obs_range * sin(thetas + obs_bearing); ///        calculates the hit coords in global frame (1.4)
 
-                        int m_x = MAP_GXWX(self->map_, xhit); /// convert from global frame to map frame
+                        int m_x = MAP_GXWX(self->map_, xhit); /// convert from global frame to map frame. metres to map grid cells. so that it can be indexed
                         int m_y = MAP_GYWY(self->map_, yhit); ///
 
                         bool valid = MAP_VALID(self->map_, m_x, m_y); /// check if point lies within map boundary
@@ -130,13 +130,13 @@ namespace iar_amcl
                         if (valid) {
                             
                             int index = MAP_INDEX(self->map_, m_x, m_y); /// get the map cell's index number
-                            dist = self->map_->cells[index].occ_dist; /// get the map cell's distance to nearest obstacle.
+                            dist = self->map_->cells[index].occ_dist; /// get the map cell's distance to nearest obstacle. 6.
                             
 
 
                         }
                         else {
-                            dist = self->map_->max_occ_dist;
+                            dist = self->map_->max_occ_dist; /// if not valid, set distance to maximum obstacle distance. assume it is furthest from.
                         }
                         
 

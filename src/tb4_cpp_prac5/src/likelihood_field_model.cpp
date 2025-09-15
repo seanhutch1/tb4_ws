@@ -33,7 +33,9 @@ namespace iar_amcl
         pf_vector_t pose_robot; 
 
         // hit_x and hit_y are the horizontal position and vertical position of the endpoint of a laser beam
-        double hit_x, hit_y;
+        // double hit_x, hit_y;
+        double xhit;
+        double yhit;
 
         self = reinterpret_cast<LikelihoodFieldModel *>(data->laser);
 
@@ -58,12 +60,12 @@ namespace iar_amcl
                 const double yT = lidar_pose_to_robot.v[1];
                 const double thetaT = lidar_pose_to_robot.v[2];
 
-                const double xs;
-                const double ys;
-                const double thetas;
+                double xs;
+                double ys;
+                double thetas;
 
                 xs = xr + xT * cos(thetar) - yT * sin(thetar);
-                ys = yr + xT * cos(thetar) + yT * sin(thetar);
+                ys = yr + xT * sin(thetar) + yT * cos(thetar);
                 thetas = thetar + thetaT;
 
             
@@ -101,7 +103,7 @@ namespace iar_amcl
                         Check whether a failure measurement is detected, i.e., max range is detected. If yes, update the probability
                     */
                     if (obs_range == data->range_max) {
-                        pz = pz + self->z_max_
+                        pz = pz + self->z_max_;
                     }
 
 
@@ -114,10 +116,9 @@ namespace iar_amcl
 
                     if (obs_range < data->range_max) {
 
-                        pz = pz + ( self->z_rand_ * (1 / data->range_max ));
+                        pz = pz + ( self->z_rand_ * (1.0 / data->range_max ));
 
-                        const double xhit;
-                        const double yhit;
+                        
 
                         xhit = xs + obs_range * cos(thetas + obs_bearing);
                         yhit = ys + obs_range * sin(thetas + obs_bearing);
@@ -140,7 +141,7 @@ namespace iar_amcl
                         }
                         
 
-                        pz = pz + self->z_hit_ * exp(-(dist * dist) / (2.0 * self->sigma_hit_ * self->sigma_hit_) )
+                        pz = pz + self->z_hit_ * exp(-(dist * dist) / (2.0 * self->sigma_hit_ * self->sigma_hit_) );
 
 
 

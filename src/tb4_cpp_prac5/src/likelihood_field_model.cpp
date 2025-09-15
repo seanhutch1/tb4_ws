@@ -50,13 +50,13 @@ namespace iar_amcl
                     Compute the pose of the lidar sensor.
                 */
 
-                pf_vector_t lidar_pose_to_robot = self->laser_pose_; /// Tsens = {xT, yT, thetaT} = sensor in robot's frame
+                pf_vector_t lidar_pose_to_robot = self->laser_pose_; /// Tsens = {xT, yT, thetaT} = sensor pose in robot's frame
 
-                const double xr = pose_robot.v[0];
+                const double xr = pose_robot.v[0]; /// pose_robot is particle's robot pose in the global frame
                 const double yr = pose_robot.v[1];
                 const double thetar = pose_robot.v[2];
 
-                const double xT = lidar_pose_to_robot.v[0];
+                const double xT = lidar_pose_to_robot.v[0]; 
                 const double yT = lidar_pose_to_robot.v[1];
                 const double thetaT = lidar_pose_to_robot.v[2];
 
@@ -64,10 +64,9 @@ namespace iar_amcl
                 double ys;
                 double thetas;
 
-                xs = xr + xT * cos(thetar) - yT * sin(thetar);
-                ys = yr + xT * sin(thetar) + yT * cos(thetar);
+                xs = xr + xT * cos(thetar) - yT * sin(thetar); /// this gets the lidar sensor's pose in the global frame,
+                ys = yr + xT * sin(thetar) + yT * cos(thetar); ///        to correctly project the laser onto the map
                 thetas = thetar + thetaT;
-
             
 
 
@@ -102,8 +101,8 @@ namespace iar_amcl
                         TODO TASK - MILESTONE 1.3
                         Check whether a failure measurement is detected, i.e., max range is detected. If yes, update the probability
                     */
-                    if (obs_range == data->range_max) {
-                        pz = pz + self->z_max_;
+                    if (obs_range == data->range_max) { /// the laser range = sensors max measurable distance
+                        pz = pz + self->z_max_; /// add the weight z_max to pz.
                     }
 
 
@@ -120,8 +119,8 @@ namespace iar_amcl
 
                         
 
-                        xhit = xs + obs_range * cos(thetas + obs_bearing);
-                        yhit = ys + obs_range * sin(thetas + obs_bearing);
+                        xhit = xs + obs_range * cos(thetas + obs_bearing); ///  use trig to calc the angle and dist from the lidars pose.
+                        yhit = ys + obs_range * sin(thetas + obs_bearing); ///        calculates the hit coords in global frame (1.4)
 
                         int m_x = MAP_GXWX(self->map_, xhit); /// convert from global frame to map frame
                         int m_y = MAP_GYWY(self->map_, yhit); ///

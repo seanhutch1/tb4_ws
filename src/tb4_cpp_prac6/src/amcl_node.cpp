@@ -1579,7 +1579,10 @@ AmclNode::pf_resample(pf_t * pf){
   /// particles with bigger weights own bigger sections of the CDF so they are more liekly to get picked
   ///     when chosing a random number between 0.0 and 1.0
 
-  cd_old_set[0] = 0.0;
+
+  /// start the CDF array with 0
+  cd_old_set[0] = 0.0; 
+
   for (int i = 0; i < old_particle_set->sample_count; i++){ /// index thru all old set particles
     cd_old_set[i + 1] = cd_old_set[i] + old_particle_set->samples[i].weight; /// add the weight of the next sample to the previous index to make a CDF array
   }
@@ -1609,10 +1612,20 @@ AmclNode::pf_resample(pf_t * pf){
   */
 
   double w_diff;
-  w_diff = 1.0 - pf->w_fast / pf->w_slow;
+
+  if (pf->w_slow > 0.00000000001) 
+  {
+    w_diff = 1.0 - (pf->w_fast / pf->w_slow);
+  }
+
   if (w_diff < 0.0)
   {
     w_diff = 0.0;
+  }
+
+  if (w_diff > 1.0)
+  {
+    w_diff = 1.0;
   }
   
 
@@ -1620,7 +1633,7 @@ AmclNode::pf_resample(pf_t * pf){
   {
     sample_in_new_set = new_particle_set->samples + new_particle_set->sample_count;
 
-    if(drand48() < w_diff){ /// 1- wdiff to match algorithm 1 from prac6 sheet?
+    if(drand48() < (1.0 - w_diff)){ /// 1- wdiff to match algorithm 1 from prac6 sheet?
       /* TODO TASK - MILESTONE #3
         Generate uniformly distributed samples according to a probability of w_diff
       */
@@ -1636,23 +1649,27 @@ AmclNode::pf_resample(pf_t * pf){
       */
 
      
-      double random_pick = dran48();
+      double random_pick = drand48(); /// random value from 0 - 1.
 
-      int random_pick_index = 0;
-      for (int i = 0; i < old_particle_set->sample_count; i++){
-        if (random_pick >= cd_old_set[i] && random_pick < cd_old_set[i+1]){
+      int random_pick_index = 0; /// the index of the sample that will be chosen
+      for (int i = 0; i < old_particle_set->sample_count; i++){ /// 
+        if (random_pick >= cd_old_set[i] && random_pick < cd_old_set[i+1]){ /// find the position in the Cumulative distribution array that matches the random pick value.
           random_pick_index = i;
           break;
         }
       }
 
-      sample_in_new_set->pose = old_particle_set->samples[random_pick_index].pose;
+      sample_in_new_set->pose = old_particle_set->samples[random_pick_index].pose; // saves the sample to next sample for the new particle set
 
 
     }
     /* TODO TASK - MILESTONE # 5
       Allocate weights to new particles, and calculate total weights
     */
+
+    sample_in_new_set->weight = 1.0; /// give same weight to all new particles
+
+
 
 
     iar_amcl::pf_kdtree_insert(new_particle_set->kdtree, sample_in_new_set->pose, sample_in_new_set->weight);

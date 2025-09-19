@@ -1,0 +1,4 @@
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac6/src/amcl_node.cpp:[m[K In member function ‘[01m[Kvoid iar_amcl::AmclNode::pf_resample(pf_t*)[m[K’:
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac6/src/amcl_node.cpp:1563:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksample_in_old_set[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+ 1563 |   pf_sample_t * [01;35m[Ksample_in_old_set[m[K, * sample_in_new_set;
+      |                 [01;35m[K^~~~~~~~~~~~~~~~~[m[K

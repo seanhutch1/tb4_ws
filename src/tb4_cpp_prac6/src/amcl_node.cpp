@@ -1612,6 +1612,7 @@ AmclNode::pf_resample(pf_t * pf){
   */
 
   double w_diff;
+  w_diff = 0.0;
 
   if (pf->w_slow > 0.00000000001) 
   {
@@ -1633,7 +1634,7 @@ AmclNode::pf_resample(pf_t * pf){
   {
     sample_in_new_set = new_particle_set->samples + new_particle_set->sample_count;
 
-    if(drand48() < (1.0 - w_diff)){ /// 1- wdiff to match algorithm 1 from prac6 sheet?
+    if(drand48() < max(0.0, 1.0 - w_diff)){ /// 1- wdiff to match algorithm 1 from prac6 sheet?
       /* TODO TASK - MILESTONE #3
         Generate uniformly distributed samples according to a probability of w_diff
       */

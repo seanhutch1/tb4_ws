@@ -1547,6 +1547,14 @@ AmclNode::initLaserScan()
   last_laser_received_ts_ = rclcpp::Time(0);
 }
 
+
+
+
+
+
+
+
+
 void 
 AmclNode::pf_resample(pf_t * pf){
   // Define pointers to two particle sets
@@ -1568,16 +1576,34 @@ AmclNode::pf_resample(pf_t * pf){
   */
 
 
+
+
+
   /* TODO TASK - MILESTONE #1
     Initialise new sample set with sample count = 0, and  
     set total weight of the new particle set to zero
   */
+  new_particle_set->sample_count = 0; ///  the new partical set that will be created by resampling
+
+  /// new_particle_set->total_weight = 0.0;
+  /// or
+  double total_weight_new_particle_set = 0.0;  
+  /// does new_particle_set have a total_weight field?
+
+
 
 
   /* TODO TASK - MILESTONE #2
     calculate w_diff = 1 - w_fast /w_slow, and if w_diff < 0, set it to zero
   */
 
+  double w_diff;
+  w_diff = 1.0 - pf->w_fast / pf->w_slow;
+  if (w_diff < 0.0)
+  {
+    w_diff = 0.0;
+  }
+  
 
   while(new_particle_set->sample_count < pf->max_samples)
   {

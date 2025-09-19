@@ -1668,6 +1668,8 @@ AmclNode::pf_resample(pf_t * pf){
     */
 
     sample_in_new_set->weight = 1.0; /// give same weight to all new particles
+    total_weight_new_particle_set += sample_in_new_set->weight; /// keep running total
+
 
 
 
@@ -1682,13 +1684,46 @@ AmclNode::pf_resample(pf_t * pf){
     int M;
     int k = new_particle_set->kdtree->leaf_count;
 
+    if (k <= 1){
+      M = pf->max_samples;
+    }
+
+    else {
+
+      const double pop_err = this->pf_err_; /// idk
+      const double z = this->pf_z_;         /// the z_1-delta term
+      const int min_particles = pf->min_samples;
+
+      double cubed_term = 1.0 - (2.0/(9.0 * (k - 1.0))) + (sqrt(2.0 / (9.0 * (k - 1.0))  )) * (z);
+
+      double M_value = ( (k - 1.0)/(2.0 * pop_err) ) * (cubed_term * cubed_term * cubed_term);
+
+      int M = static_cast<int>(std::ceil(m_real)); /// rounds up to nearest integer value for number of particles
+
+      if (M < min_particles){ /// cant be lower than min particles
+        M = min_particles;
+      }
+
+      if (M > pf->max_samples){ /// cant be higher than max particles
+        M = pf->max_samples;
+      }
+
+    }
+
+
     /* TODO TASK - MILESTONE # 7
       Check whether number of samples in the new particle set is larger than M, if yes, break the resampling.
     */
+
+
+    if (new_particle_set->sample_count > M) {
+      break;
+    }
+
   }
 
 
-  if(w_diff > 0.05)
+  if(w_diff > 0.05) /// > 0 on alogrithm 1 
     pf->w_fast = pf->w_slow = 0.0;
 
   /* TODO TASK - MILESTONE # 8

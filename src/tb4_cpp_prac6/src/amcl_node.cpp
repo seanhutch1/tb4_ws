@@ -1634,7 +1634,7 @@ AmclNode::pf_resample(pf_t * pf){
   {
     sample_in_new_set = new_particle_set->samples + new_particle_set->sample_count;
 
-    if(drand48() < max(0.0, 1.0 - w_diff)){ /// 1- wdiff to match algorithm 1 from prac6 sheet?
+    if(drand48() < std::max(0.0, 1.0 - w_diff)){ /// 1- wdiff to match algorithm 1 from prac6 sheet?
       /* TODO TASK - MILESTONE #3
         Generate uniformly distributed samples according to a probability of w_diff
       */
@@ -1695,11 +1695,11 @@ AmclNode::pf_resample(pf_t * pf){
       const double z = this->pf_z_;         /// the z_1-delta term
       const int min_particles = pf->min_samples;
 
-      double cubed_term = 1.0 - (2.0/(9.0 * (k - 1.0))) + (sqrt(2.0 / (9.0 * (k - 1.0))  )) * (z);
+      double cubed_term = 1.0 - (2.0/(9.0 * (k - 1.0))) + (std::sqrt(2.0 / (9.0 * (k - 1.0))  )) * (z);
 
-      double M_value = ( (k - 1.0)/(2.0 * pop_err) ) * (cubed_term * cubed_term * cubed_term);
+      double M_term = ( (k - 1.0)/(2.0 * pop_err) ) * (cubed_term * cubed_term * cubed_term);
 
-      int M = static_cast<int>(std::ceil(m_real)); /// rounds up to nearest integer value for number of particles
+      M = static_cast<int>(std::ceil(M_term)); /// rounds up to nearest integer value for number of particles
 
       if (M < min_particles){ /// cant be lower than min particles
         M = min_particles;
@@ -1724,15 +1724,38 @@ AmclNode::pf_resample(pf_t * pf){
   }
 
 
-  if(w_diff > 0.05) /// > 0 on alogrithm 1 
+  if(w_diff > 0.05) /// > 0 on alogrithm 1 ?????????????????????
     pf->w_fast = pf->w_slow = 0.0;
 
   /* TODO TASK - MILESTONE # 8
     Normalised the weights in the new particle set
   */
 
+  double total = total_weight_new_particle_set;
 
-   pf_cluster_stats(pf, new_particle_set);
+  const int n = new_particle_set->sample_count; /// amount of particles in the new set
+
+
+  if (total <= 0.0) {  /// gaurd against divide by 0. 
+
+    for (int i = 0; i < n; ++i) {
+      new_particle_set->samples[i].weight = 1.0 / n; /// just sets all weights equal
+    }
+
+  } 
+
+  else {
+
+    for (int i = 0; i < n; ++i) { /// every sample gets its weight divided by total so that they all add up to 1.0.
+      new_particle_set->samples[i].weight = new_particle_set->samples[i].weight / total; 
+    }
+  }
+
+
+
+
+
+   pf_cluster_stats(pf, new_particle_set); /// this function requires weights to be normalised
    pf->current_set = (pf->current_set + 1) % 2;
    free(cd_old_set);
 }

@@ -1574,6 +1574,17 @@ AmclNode::pf_resample(pf_t * pf){
     Calculate the cumulative importance weight here for resampling purpose, and save 
     to the array "cd_old_set"
   */
+  /// all the weights of the particles in the old set add up to 1.0.
+  /// create cumulative distribution as an array [0.0, 0.1, 0.4, 0.6, 0.9, 1.0]
+  /// particles with bigger weights own bigger sections of the CDF so they are more liekly to get picked
+  ///     when chosing a random number between 0.0 and 1.0
+
+  cd_old_set[0] = 0.0;
+  for (int i = 0; i < old_particle_set->sample_count; i++){ /// index thru all old set particles
+    cd_old_set[i + 1] = cd_old_set[i] + old_particle_set->samples[i].weight; /// add the weight of the next sample to the previous index to make a CDF array
+  }
+
+  cd_old_set[old_particle_set->sample_count] = 1.0; /// makes the last index of the CDF array to be 1.0, for a range of 0-1
 
 
 
@@ -1609,15 +1620,35 @@ AmclNode::pf_resample(pf_t * pf){
   {
     sample_in_new_set = new_particle_set->samples + new_particle_set->sample_count;
 
-    if(drand48() < w_diff){
+    if(drand48() < w_diff){ /// 1- wdiff to match algorithm 1 from prac6 sheet?
       /* TODO TASK - MILESTONE #3
         Generate uniformly distributed samples according to a probability of w_diff
       */
+      pf_vector_t random_pose = (pf->random_pose_fn)(reinterpret_cast<void *>(map_)); /// makes a random pose from the valid map area
+      sample_in_new_set->pose = random_pose; /// saves the sample to next sample for the new particle set
+
+
     } 
     else {
+
       /* TODO TASK - MILESTONE # 4.2
         Generate samples based on weight 
       */
+
+     
+      double random_pick = dran48();
+
+      int random_pick_index = 0;
+      for (int i = 0; i < old_particle_set->sample_count; i++){
+        if (random_pick >= cd_old_set[i] && random_pick < cd_old_set[i+1]){
+          random_pick_index = i;
+          break;
+        }
+      }
+
+      sample_in_new_set->pose = old_particle_set->samples[random_pick_index].pose;
+
+
     }
     /* TODO TASK - MILESTONE # 5
       Allocate weights to new particles, and calculate total weights

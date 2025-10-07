@@ -237,7 +237,11 @@ namespace iar_astar_planner
 
 
 
-        
+
+        /// For MS 2.5:
+        int goalCell = goal_[1] * nx_ + goal_[0]; /// calcs the goal's 1D index (from tut7)
+
+
         bool propSuccess = false;
         for(; cycle < cycles; cycle++)
         {
@@ -258,7 +262,7 @@ namespace iar_astar_planner
             */
             int i = n_curPotentArr_;
             int * pb = curPotentArr_;
-            while(i-->0)
+            while(i-->0) /// loops thru array and clear pending flags
             {
                 pending_[*(pb++)] = false;
             }
@@ -266,16 +270,7 @@ namespace iar_astar_planner
             /// cells in the current frontier are no longer "pending". 
             /// it should not be marked as queued anymore.
 
-
-
-
-
-
-
-
-
-
-
+            /// pb = pointer to buffer
             pb = curPotentArr_;
             i = n_curPotentArr_;
             while(i-- >0)
@@ -300,12 +295,35 @@ namespace iar_astar_planner
                 If does not exist any, swap the contents of buffers `curPotentArr_" and ``overflowPotentArr_", 
                 and increment the potential threshhold.
             */
+            /// implementation straight from tut 7 code
+
+            /// three buffers as a prioriuty queue:
+            ///     - current potential array 
+            ///     - next potential array
+            ///     - overflow potential array = lower than potentialThreshold_ value
+
+
+            if (n_curPotentArr_ == 0){ /// if fronteir is empty AFTER swapping current and next
+                potentThresh_ += potentThreshInc_;      /// increases the threshold by the increment amount
+                n_curPotentArr_ = n_overflowPotentArr_; /// swap no. of current and no. of overflow
+                n_overflowPotentArr_ = 0;               /// clear
+                pb = curPotentArr_;                     /// swap buffers
+                curPotentArr_ = overflowPotentArr_;     
+                overflowPotentArr_ = pb;
+            }   
 
 
             /* TODO TASK - MILESTONE # 2.5
                 Check whether the propogation hit the goal pose. 
                 If yes, stop the propogation process and set succes flag to ''true"
             */
+            /// implementation straight from tut 7 code
+            // Check we have hit the goal cell
+            if(potarr_[goalCell] < POT_HIGHEST) /// pot_highest is the init value of the cells (inf cost)
+            {                                   ///   ... so when its not that anymore it has been discovered.
+                propSuccess = true; 
+                break;
+            }
   
                 
         }

@@ -126,7 +126,7 @@ namespace iar_astar_planner
         }
     }
 
-    bool NavFn::setNavFn()
+    bool NavFn::setNavFn() /// set up the navigation function
     {
         // reset values in propagation arrays
         for (int i = 0; i < ns_; i++) {
@@ -160,7 +160,7 @@ namespace iar_astar_planner
         memset(pending_, 0, ns_ * sizeof(bool));
 
 
-        // set start
+        // set up the start cell and add surrounding to the buffer
         int k = start_[0] + start_[1] * nx_; // k is the start index for the 1D array
         potarr_[k] = 0;  /// start square is 0 cost to get to itself
         push_cur(k + 1); // right
@@ -173,7 +173,7 @@ namespace iar_astar_planner
             (not just the right, left, top and bottom)  should be pushed to the 
             buffer "curPotentArr_"
         */
-        /// + 1 or -1 moves it over one square to make it 8-connected instead of 4- connected
+        /// + 1 or -1 indexes it over one square to make it 8-connected instead of 4- connected
         push_cur(k - nx_ - 1); // top left 
         push_cur(k - nx_ + 1); // top right
         push_cur(k + nx_ - 1); // bottom left

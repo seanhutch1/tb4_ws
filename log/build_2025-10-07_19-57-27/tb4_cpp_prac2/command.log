@@ -1,0 +1,4 @@
+Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac2
+Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac2

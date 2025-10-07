@@ -232,7 +232,7 @@ namespace iar_astar_planner
         yDist = goalY - startY;
     
         double dist; /// calculates the hypotenuse (euclidean  straight line heuristic of grid cells)
-        dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) ) /// scaled by  COST_NEUTRAL
+        dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) ); /// scaled by  COST_NEUTRAL
 
         potentThreshInc_ = potentThreshInc_ + dist;
 
@@ -360,10 +360,10 @@ namespace iar_astar_planner
             /// costarr_ is the per-cell cost to enter that cell. eg, 50 or 254. (traversal cost)
 
             /// this is calculating to see if there is a cheaper G cost than the current G cost for cell n
-            float l = potarr_[n - 1] + costarr_[n];     /// from left to cell n
-            float r = potarr_[n + 1] + costarr_[n];     /// from right to cell n
-            float t = potarr_[n - nx_] + costarr_[n];   /// from top to cell n
-            float b = potarr_[n + nx_] + costarr_[n];   /// from bottom to cell n
+             l = potarr_[n - 1] + costarr_[n];     /// from left to cell n
+             r = potarr_[n + 1] + costarr_[n];     /// from right to cell n
+             t = potarr_[n - nx_] + costarr_[n];   /// from top to cell n
+             b = potarr_[n + nx_] + costarr_[n];   /// from bottom to cell n
             
 
 
@@ -379,10 +379,10 @@ namespace iar_astar_planner
             */
             /// same as 3.1 but for the diagonals
             /// calculating Gcost of diagonals + cost to get into cell n = a potentially cheaper Gcost.
-            float tl = potarr_[n - nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// top left to cell n
-            float tr = potarr_[n - nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// top right to cell n
-            float bl = potarr_[n + nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// bottom left to cell n
-            float br = potarr_[n + nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// bottom right to cell n
+             tl = potarr_[n - nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// top left to cell n
+             tr = potarr_[n - nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// top right to cell n
+             bl = potarr_[n + nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// bottom left to cell n
+             br = potarr_[n + nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// bottom right to cell n
 
 
 
@@ -428,7 +428,7 @@ namespace iar_astar_planner
                 currentX = n % nx_; /// modulo operator. remainder after integer division. 
                                     ///     it will give the position inside the row.
 
-                currentY = n / nx_; ///  integer division. will give the remainder after going past the full rows.
+                currentY = n / nx_; ///  integer division. it will give the row index.
 
                 int xDist;
                 int yDist;
@@ -437,7 +437,7 @@ namespace iar_astar_planner
             
                 /// Compute the heuristic distance from current cell to the goal cell:
                 double dist; /// calculates the hypotenuse (euclidean  straight line heuristic of grid cells)
-                dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) ) /// scaled by  COST_NEUTRAL
+                dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) ); /// scaled by  COST_NEUTRAL
 
                 pot = pot + static_cast<float>(dist); /// add the distance cost to the pot
 
@@ -543,8 +543,8 @@ namespace iar_astar_planner
                 return npath_;  // done!
             }
 
-            int stcnx = stc + nx_;
-            int stcpx = stc - nx_;
+            // int stcnx = stc + nx_;
+            // int stcpx = stc - nx_;
 
             int minc = stc;
             int current_p = potarr_[stc];
@@ -565,7 +565,7 @@ namespace iar_astar_planner
             int n_br = stc + nx_ + 1; // bottom right
 
             /// read the potentials of all neighbours and current cell
-            float current_p   = potarr_[stc];
+            // float current_p   = potarr_[stc];
             float p_left = potarr_[n_left];
             float p_right= potarr_[n_right];
             float p_top   = potarr_[n_top];
@@ -577,36 +577,36 @@ namespace iar_astar_planner
             
 
             /// compare each to the current minimum to find lowest.
-            if (p_left < minp) {
-                minp = p_left;
+            if (p_left < min_p) {
+                min_p = p_left;
                 minc = n_left;
             }
-            if (p_right < minp) {
-                minp = p_right;
+            if (p_right < min_p) {
+                min_p = p_right;
                 minc = n_right;
             }
-            if (p_top < minp) {
-                minp = p_top;
+            if (p_top < min_p) {
+                min_p = p_top;
                 minc = n_top;
             }
-            if (p_bottom < minp) {
-                minp = p_bottom;
+            if (p_bottom < min_p) {
+                min_p = p_bottom;
                 minc = n_bottom;
             }
-            if (p_tl < minp) {
-                minp = p_tl;
+            if (p_tl < min_p) {
+                min_p = p_tl;
                 minc = n_tl;
             }
-            if (p_tr < minp) {
-                minp = p_tr;
+            if (p_tr < min_p) {
+                min_p = p_tr;
                 minc = n_tr;
             }
-            if (p_bl < minp) {
-                minp = p_bl;
+            if (p_bl < min_p) {
+                min_p = p_bl;
                 minc = n_bl;
             }
-            if (p_br < minp) {
-                minp = p_br;
+            if (p_br < min_p) {
+                min_p = p_br;
                 minc = n_br;
             }
             

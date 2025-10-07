@@ -1,0 +1,171 @@
+[0.085s] Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/robotai/tb4_ws/src/tb4_cpp_prac7 -DCMAKE_INSTALL_PREFIX=/home/robotai/tb4_ws/install/tb4_cpp_prac7
+[28.628s] -- The C compiler identification is GNU 12.3.0
+[28.629s] -- The CXX compiler identification is GNU 12.3.0
+[28.629s] -- Detecting C compiler ABI info
+[28.629s] -- Detecting C compiler ABI info - done
+[28.629s] -- Check for working C compiler: /usr/bin/cc - skipped
+[28.629s] -- Detecting C compile features
+[28.629s] -- Detecting C compile features - done
+[28.629s] -- Detecting CXX compiler ABI info
+[28.629s] -- Detecting CXX compiler ABI info - done
+[28.629s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[28.629s] -- Detecting CXX compile features
+[28.629s] -- Detecting CXX compile features - done
+[28.629s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[28.629s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[28.629s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[28.629s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[28.629s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[28.629s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[28.630s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[28.630s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[28.630s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[28.630s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[28.630s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[28.630s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[28.630s] -- Found FastRTPS: /opt/ros/humble/include  
+[28.630s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[28.630s] -- Looking for pthread.h
+[28.630s] -- Looking for pthread.h - found
+[28.630s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[28.630s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[28.630s] -- Found Threads: TRUE  
+[28.630s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[28.630s] -- Found rclcpp_lifecycle: 16.0.15 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[28.630s] -- Found nav2_common: 1.1.18 (/opt/ros/humble/share/nav2_common/cmake)
+[28.630s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[28.631s] -- Found nav2_util: 1.1.18 (/opt/ros/humble/share/nav2_util/cmake)
+[28.631s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[28.631s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[28.631s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[28.631s] -- Found nav2_core: 1.1.18 (/opt/ros/humble/share/nav2_core/cmake)
+[28.631s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[28.719s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[28.798s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/robotai/tb4_ws/src/tb4_cpp_prac7/include>
+[28.798s] -- Configured cppcheck exclude dirs and/or files: 
+[28.798s] -- Added test 'flake8' to check Python code syntax and style conventions
+[28.798s] -- Added test 'lint_cmake' to check CMake code style
+[28.798s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[28.798s] -- Added test 'uncrustify' to check C / C++ code style
+[28.798s] -- Configured uncrustify additional arguments: 
+[28.798s] -- Added test 'xmllint' to check XML markup files
+[28.798s] -- Configuring done
+[28.809s] -- Generating done
+[28.861s] -- Build files have been written to: /home/robotai/tb4_ws/build/tb4_cpp_prac7
+[32.443s] Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/robotai/tb4_ws/src/tb4_cpp_prac7 -DCMAKE_INSTALL_PREFIX=/home/robotai/tb4_ws/install/tb4_cpp_prac7
+[32.480s] Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac7 -- -j6 -l6
+[32.693s] [ 33%] [32mBuilding CXX object CMakeFiles/iar_astar_planner.dir/src/iar_astar_planner.cpp.o[0m
+[42.042s] [ 66%] [32mBuilding CXX object CMakeFiles/iar_astar_planner.dir/src/navfn.cpp.o[0m
+[45.750s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:[m[K In member function ‘[01m[Kbool iar_astar_planner::NavFn::propAstar(int)[m[K’:
+[45.750s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:235:95:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[KpotentThreshInc_[m[K’
+[45.751s]   235 |         dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) )[01;31m[K [m[K/// scaled by  COST_NEUTRAL
+[45.751s]       |                                                                                               [01;31m[K^[m[K
+[45.751s]       |                                                                                               [32m[K;[m[K
+[45.751s]   236 | 
+[45.752s]   237 |         [32m[KpotentThreshInc_[m[K = potentThreshInc_ + dist;
+[45.752s]       |         [32m[K~~~~~~~~~~~~~~~~[m[K                                                                       
+[45.753s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:[m[K In member function ‘[01m[Kvoid iar_astar_planner::NavFn::updateCell(int)[m[K’:
+[45.753s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:363:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat l[m[K’
+[45.753s]   363 |             float [01;31m[Kl[m[K = potarr_[n - 1] + costarr_[n];     /// from left to cell n
+[45.758s]       |                   [01;31m[K^[m[K
+[45.759s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:19:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat l[m[K’ previously declared here
+[45.759s]   347 |             float [01;36m[Kl[m[K, r, t, b, tl, tr, bl, br;
+[45.760s]       |                   [01;36m[K^[m[K
+[45.760s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:364:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat r[m[K’
+[45.760s]   364 |             float [01;31m[Kr[m[K = potarr_[n + 1] + costarr_[n];     /// from right to cell n
+[45.760s]       |                   [01;31m[K^[m[K
+[45.760s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:22:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat r[m[K’ previously declared here
+[45.760s]   347 |             float l, [01;36m[Kr[m[K, t, b, tl, tr, bl, br;
+[45.761s]       |                      [01;36m[K^[m[K
+[45.761s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:365:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat t[m[K’
+[45.762s]   365 |             float [01;31m[Kt[m[K = potarr_[n - nx_] + costarr_[n];   /// from top to cell n
+[45.762s]       |                   [01;31m[K^[m[K
+[45.762s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:25:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat t[m[K’ previously declared here
+[45.762s]   347 |             float l, r, [01;36m[Kt[m[K, b, tl, tr, bl, br;
+[45.762s]       |                         [01;36m[K^[m[K
+[45.762s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:366:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat b[m[K’
+[45.762s]   366 |             float [01;31m[Kb[m[K = potarr_[n + nx_] + costarr_[n];   /// from bottom to cell n
+[45.763s]       |                   [01;31m[K^[m[K
+[45.763s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:28:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat b[m[K’ previously declared here
+[45.763s]   347 |             float l, r, t, [01;36m[Kb[m[K, tl, tr, bl, br;
+[45.763s]       |                            [01;36m[K^[m[K
+[45.763s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:382:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat tl[m[K’
+[45.763s]   382 |             float [01;31m[Ktl[m[K = potarr_[n - nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// top left to cell n
+[45.763s]       |                   [01;31m[K^~[m[K
+[45.763s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:31:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat tl[m[K’ previously declared here
+[45.763s]   347 |             float l, r, t, b, [01;36m[Ktl[m[K, tr, bl, br;
+[45.763s]       |                               [01;36m[K^~[m[K
+[45.763s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:383:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat tr[m[K’
+[45.763s]   383 |             float [01;31m[Ktr[m[K = potarr_[n - nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// top right to cell n
+[45.763s]       |                   [01;31m[K^~[m[K
+[45.764s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:35:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat tr[m[K’ previously declared here
+[45.764s]   347 |             float l, r, t, b, tl, [01;36m[Ktr[m[K, bl, br;
+[45.764s]       |                                   [01;36m[K^~[m[K
+[45.764s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:384:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat bl[m[K’
+[45.764s]   384 |             float [01;31m[Kbl[m[K = potarr_[n + nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// bottom left to cell n
+[45.764s]       |                   [01;31m[K^~[m[K
+[45.764s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:39:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat bl[m[K’ previously declared here
+[45.764s]   347 |             float l, r, t, b, tl, tr, [01;36m[Kbl[m[K, br;
+[45.764s]       |                                       [01;36m[K^~[m[K
+[45.764s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:385:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat br[m[K’
+[45.764s]   385 |             float [01;31m[Kbr[m[K = potarr_[n + nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// bottom right to cell n
+[45.764s]       |                   [01;31m[K^~[m[K
+[45.764s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:43:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat br[m[K’ previously declared here
+[45.764s]   347 |             float l, r, t, b, tl, tr, bl, [01;36m[Kbr[m[K;
+[45.764s]       |                                           [01;36m[K^~[m[K
+[45.764s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:440:103:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kpot[m[K’
+[45.764s]   440 |                 dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) )[01;31m[K [m[K/// scaled by  COST_NEUTRAL
+[45.764s]       |                                                                                                       [01;31m[K^[m[K
+[45.764s]       |                                                                                                       [32m[K;[m[K
+[45.764s]   441 | 
+[45.764s]   442 |                 [32m[Kpot[m[K = pot + static_cast<float>(dist); /// add the distance cost to the pot
+[45.764s]       |                 [32m[K~~~[m[K                                                                                    
+[45.765s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:[m[K In member function ‘[01m[Kint iar_astar_planner::NavFn::calcPath(int)[m[K’:
+[45.765s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:568:19:[m[K [01;31m[Kerror: [m[Kconflicting declaration ‘[01m[Kfloat current_p[m[K’
+[45.765s]   568 |             float [01;31m[Kcurrent_p[m[K   = potarr_[stc];
+[45.765s]       |                   [01;31m[K^~~~~~~~~[m[K
+[45.765s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:550:17:[m[K [01;36m[Knote: [m[Kprevious declaration as ‘[01m[Kint current_p[m[K’
+[45.765s]   550 |             int [01;36m[Kcurrent_p[m[K = potarr_[stc];
+[45.765s]       |                 [01;36m[K^~~~~~~~~[m[K
+[45.783s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:580:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.783s]   580 |             if (p_left < [01;31m[Kminp[m[K) {
+[45.783s]       |                          [01;31m[K^~~~[m[K
+[45.783s]       |                          [32m[Kmin_p[m[K
+[45.799s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:584:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.799s]   584 |             if (p_right < [01;31m[Kminp[m[K) {
+[45.799s]       |                           [01;31m[K^~~~[m[K
+[45.799s]       |                           [32m[Kmin_p[m[K
+[45.809s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:588:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.813s]   588 |             if (p_top < [01;31m[Kminp[m[K) {
+[45.813s]       |                         [01;31m[K^~~~[m[K
+[45.813s]       |                         [32m[Kmin_p[m[K
+[45.818s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:592:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.818s]   592 |             if (p_bottom < [01;31m[Kminp[m[K) {
+[45.818s]       |                            [01;31m[K^~~~[m[K
+[45.818s]       |                            [32m[Kmin_p[m[K
+[45.828s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:596:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.828s]   596 |             if (p_tl < [01;31m[Kminp[m[K) {
+[45.828s]       |                        [01;31m[K^~~~[m[K
+[45.828s]       |                        [32m[Kmin_p[m[K
+[45.834s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:600:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.834s]   600 |             if (p_tr < [01;31m[Kminp[m[K) {
+[45.834s]       |                        [01;31m[K^~~~[m[K
+[45.834s]       |                        [32m[Kmin_p[m[K
+[45.844s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:604:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.844s]   604 |             if (p_bl < [01;31m[Kminp[m[K) {
+[45.844s]       |                        [01;31m[K^~~~[m[K
+[45.844s]       |                        [32m[Kmin_p[m[K
+[45.852s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:608:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kminp[m[K’ was not declared in this scope; did you mean ‘[01m[Kmin_p[m[K’?
+[45.852s]   608 |             if (p_br < [01;31m[Kminp[m[K) {
+[45.852s]       |                        [01;31m[K^~~~[m[K
+[45.852s]       |                        [32m[Kmin_p[m[K
+[45.855s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:546:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstcnx[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[45.855s]   546 |             int [01;35m[Kstcnx[m[K = stc + nx_;
+[45.855s]       |                 [01;35m[K^~~~~[m[K
+[45.855s] [01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:547:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kstcpx[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[45.855s]   547 |             int [01;35m[Kstcpx[m[K = stc - nx_;
+[45.855s]       |                 [01;35m[K^~~~~[m[K
+[46.750s] gmake[2]: *** [CMakeFiles/iar_astar_planner.dir/build.make:90: CMakeFiles/iar_astar_planner.dir/src/navfn.cpp.o] Error 1
+[46.751s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/iar_astar_planner.dir/all] Error 2
+[46.752s] gmake: *** [Makefile:146: all] Error 2
+[46.765s] Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac7 -- -j6 -l6

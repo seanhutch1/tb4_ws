@@ -1,0 +1,39 @@
+[35m[1mConsolidate compiler generated dependencies of target iar_astar_planner[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/iar_astar_planner.dir/src/navfn.cpp.o[0m
+[ 66%] [32m[1mLinking CXX shared library libiar_astar_planner.so[0m
+[100%] Built target iar_astar_planner
+-- Install configuration: ""
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/iar_astar_planner.xml
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/include
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/include/iar_astar_planner
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/include/iar_astar_planner/navfn.hpp
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/include/iar_astar_planner/iar_astar_planner.hpp
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/lib/libiar_astar_planner.so
+-- Set runtime path of "/home/robotai/tb4_ws/install/tb4_cpp_prac7/lib/libiar_astar_planner.so" to ""
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7//launch
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7//launch/navigation_launch.py
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7//config
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7//config/nav2_params.yaml
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/environment/library_path.sh
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/environment/library_path.dsv
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/ament_index/resource_index/package_run_dependencies/tb4_cpp_prac7
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/ament_index/resource_index/parent_prefix_path/tb4_cpp_prac7
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/environment/ament_prefix_path.sh
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/environment/ament_prefix_path.dsv
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/environment/path.sh
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/environment/path.dsv
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/local_setup.bash
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/local_setup.sh
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/local_setup.zsh
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/local_setup.dsv
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.dsv
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/ament_index/resource_index/packages/tb4_cpp_prac7
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/ament_index/resource_index/nav2_core__pluginlib__plugin/tb4_cpp_prac7
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/cmake/export_tb4_cpp_prac7Export.cmake
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/cmake/export_tb4_cpp_prac7Export-noconfig.cmake
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/cmake/tb4_cpp_prac7Config.cmake
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/cmake/tb4_cpp_prac7Config-version.cmake
+-- Installing: /home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.xml

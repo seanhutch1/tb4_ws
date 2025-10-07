@@ -1,0 +1,54 @@
+[35m[1mConsolidate compiler generated dependencies of target iar_astar_planner[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/iar_astar_planner.dir/src/navfn.cpp.o[0m
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:[m[K In member function ‘[01m[Kvoid iar_astar_planner::NavFn::updateCell(int)[m[K’:
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:363:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat l[m[K’
+  363 |             float [01;31m[Kl[m[K = potarr_[n - 1] + costarr_[n];     /// from left to cell n
+      |                   [01;31m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:19:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat l[m[K’ previously declared here
+  347 |             float [01;36m[Kl[m[K, r, t, b, tl, tr, bl, br;
+      |                   [01;36m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:364:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat r[m[K’
+  364 |             float [01;31m[Kr[m[K = potarr_[n + 1] + costarr_[n];     /// from right to cell n
+      |                   [01;31m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:22:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat r[m[K’ previously declared here
+  347 |             float l, [01;36m[Kr[m[K, t, b, tl, tr, bl, br;
+      |                      [01;36m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:365:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat t[m[K’
+  365 |             float [01;31m[Kt[m[K = potarr_[n - nx_] + costarr_[n];   /// from top to cell n
+      |                   [01;31m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:25:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat t[m[K’ previously declared here
+  347 |             float l, r, [01;36m[Kt[m[K, b, tl, tr, bl, br;
+      |                         [01;36m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:366:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat b[m[K’
+  366 |             float [01;31m[Kb[m[K = potarr_[n + nx_] + costarr_[n];   /// from bottom to cell n
+      |                   [01;31m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:28:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat b[m[K’ previously declared here
+  347 |             float l, r, t, [01;36m[Kb[m[K, tl, tr, bl, br;
+      |                            [01;36m[K^[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:382:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat tl[m[K’
+  382 |             float [01;31m[Ktl[m[K = potarr_[n - nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// top left to cell n
+      |                   [01;31m[K^~[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:31:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat tl[m[K’ previously declared here
+  347 |             float l, r, t, b, [01;36m[Ktl[m[K, tr, bl, br;
+      |                               [01;36m[K^~[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:383:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat tr[m[K’
+  383 |             float [01;31m[Ktr[m[K = potarr_[n - nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// top right to cell n
+      |                   [01;31m[K^~[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:35:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat tr[m[K’ previously declared here
+  347 |             float l, r, t, b, tl, [01;36m[Ktr[m[K, bl, br;
+      |                                   [01;36m[K^~[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:384:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat bl[m[K’
+  384 |             float [01;31m[Kbl[m[K = potarr_[n + nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// bottom left to cell n
+      |                   [01;31m[K^~[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:39:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat bl[m[K’ previously declared here
+  347 |             float l, r, t, b, tl, tr, [01;36m[Kbl[m[K, br;
+      |                                       [01;36m[K^~[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:385:19:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kfloat br[m[K’
+  385 |             float [01;31m[Kbr[m[K = potarr_[n + nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// bottom right to cell n
+      |                   [01;31m[K^~[m[K
+[01m[K/home/robotai/tb4_ws/src/tb4_cpp_prac7/src/navfn.cpp:347:43:[m[K [01;36m[Knote: [m[K‘[01m[Kfloat br[m[K’ previously declared here
+  347 |             float l, r, t, b, tl, tr, bl, [01;36m[Kbr[m[K;
+      |                                           [01;36m[K^~[m[K
+gmake[2]: *** [CMakeFiles/iar_astar_planner.dir/build.make:90: CMakeFiles/iar_astar_planner.dir/src/navfn.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/iar_astar_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,468 @@
+[0.115s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.116s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=6, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x773ab7369db0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x773ab7369780>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x773ab7369780>>, mixin_verb=('build',))
+[0.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.276s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.276s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/robotai/tb4_ws'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.276s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.287s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.288s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extension 'ignore'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extension 'ignore_ament_install'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extensions ['colcon_pkg']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extension 'colcon_pkg'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extensions ['colcon_meta']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extension 'colcon_meta'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extensions ['ros']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac1) by extension 'ros'
+[0.291s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tb4_cpp_prac1' with type 'ros.ament_cmake' and name 'tb4_cpp_prac1'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extensions ['ignore', 'ignore_ament_install']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extension 'ignore'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extension 'ignore_ament_install'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extensions ['colcon_pkg']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extension 'colcon_pkg'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extensions ['colcon_meta']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extension 'colcon_meta'
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extensions ['ros']
+[0.292s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac2) by extension 'ros'
+[0.293s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tb4_cpp_prac2' with type 'ros.ament_cmake' and name 'tb4_cpp_prac2'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extension 'ignore'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extension 'ignore_ament_install'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extensions ['colcon_pkg']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extension 'colcon_pkg'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extensions ['colcon_meta']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extension 'colcon_meta'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extensions ['ros']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac3) by extension 'ros'
+[0.294s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tb4_cpp_prac3' with type 'ros.ament_cmake' and name 'tb4_cpp_prac3'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extensions ['ignore', 'ignore_ament_install']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extension 'ignore'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extension 'ignore_ament_install'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extensions ['colcon_pkg']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extension 'colcon_pkg'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extensions ['colcon_meta']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extension 'colcon_meta'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extensions ['ros']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac5) by extension 'ros'
+[0.296s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tb4_cpp_prac5' with type 'ros.ament_cmake' and name 'tb4_cpp_prac5'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extensions ['ignore', 'ignore_ament_install']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extension 'ignore'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extension 'ignore_ament_install'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extensions ['colcon_pkg']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extension 'colcon_pkg'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extensions ['colcon_meta']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extension 'colcon_meta'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extensions ['ros']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac6) by extension 'ros'
+[0.298s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tb4_cpp_prac6' with type 'ros.ament_cmake' and name 'tb4_cpp_prac6'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extension 'ignore'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extension 'ignore_ament_install'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extensions ['colcon_pkg']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extension 'colcon_pkg'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extensions ['colcon_meta']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extension 'colcon_meta'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extensions ['ros']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/tb4_cpp_prac7) by extension 'ros'
+[0.300s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tb4_cpp_prac7' with type 'ros.ament_cmake' and name 'tb4_cpp_prac7'
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.340s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 387 installed packages in /opt/ros/humble
+[0.341s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'cmake_target' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'cmake_clean_cache' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'cmake_clean_first' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'cmake_force_configure' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'ament_cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'catkin_cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac1' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.386s] DEBUG:colcon.colcon_core.verb:Building package 'tb4_cpp_prac1' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robotai/tb4_ws/build/tb4_cpp_prac1', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robotai/tb4_ws/install/tb4_cpp_prac1', 'merge_install': False, 'path': '/home/robotai/tb4_ws/src/tb4_cpp_prac1', 'symlink_install': False, 'test_result_base': None}
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'cmake_target' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'cmake_clean_first' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'cmake_force_configure' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'ament_cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.387s] DEBUG:colcon.colcon_core.verb:Building package 'tb4_cpp_prac2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robotai/tb4_ws/build/tb4_cpp_prac2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robotai/tb4_ws/install/tb4_cpp_prac2', 'merge_install': False, 'path': '/home/robotai/tb4_ws/src/tb4_cpp_prac2', 'symlink_install': False, 'test_result_base': None}
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'cmake_target' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'cmake_clean_cache' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'cmake_clean_first' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'cmake_force_configure' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'ament_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'catkin_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac3' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.387s] DEBUG:colcon.colcon_core.verb:Building package 'tb4_cpp_prac3' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robotai/tb4_ws/build/tb4_cpp_prac3', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robotai/tb4_ws/install/tb4_cpp_prac3', 'merge_install': False, 'path': '/home/robotai/tb4_ws/src/tb4_cpp_prac3', 'symlink_install': False, 'test_result_base': None}
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'cmake_target' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'cmake_clean_cache' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'cmake_clean_first' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'cmake_force_configure' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'ament_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'catkin_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac5' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.388s] DEBUG:colcon.colcon_core.verb:Building package 'tb4_cpp_prac5' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robotai/tb4_ws/build/tb4_cpp_prac5', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robotai/tb4_ws/install/tb4_cpp_prac5', 'merge_install': False, 'path': '/home/robotai/tb4_ws/src/tb4_cpp_prac5', 'symlink_install': False, 'test_result_base': None}
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'cmake_args' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'cmake_target' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'cmake_clean_cache' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'cmake_clean_first' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'cmake_force_configure' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'ament_cmake_args' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'catkin_cmake_args' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac6' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.388s] DEBUG:colcon.colcon_core.verb:Building package 'tb4_cpp_prac6' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robotai/tb4_ws/build/tb4_cpp_prac6', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robotai/tb4_ws/install/tb4_cpp_prac6', 'merge_install': False, 'path': '/home/robotai/tb4_ws/src/tb4_cpp_prac6', 'symlink_install': False, 'test_result_base': None}
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'cmake_args' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'cmake_target' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'cmake_clean_cache' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'cmake_clean_first' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'cmake_force_configure' from command line to 'False'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'ament_cmake_args' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'catkin_cmake_args' from command line to 'None'
+[0.388s] Level 5:colcon.colcon_core.verb:set package 'tb4_cpp_prac7' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.388s] DEBUG:colcon.colcon_core.verb:Building package 'tb4_cpp_prac7' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/robotai/tb4_ws/build/tb4_cpp_prac7', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/robotai/tb4_ws/install/tb4_cpp_prac7', 'merge_install': False, 'path': '/home/robotai/tb4_ws/src/tb4_cpp_prac7', 'symlink_install': False, 'test_result_base': None}
+[0.389s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.390s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.390s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/robotai/tb4_ws/src/tb4_cpp_prac1' with build type 'ament_cmake'
+[0.390s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/robotai/tb4_ws/src/tb4_cpp_prac1'
+[0.393s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.393s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.393s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.396s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/robotai/tb4_ws/src/tb4_cpp_prac2' with build type 'ament_cmake'
+[0.396s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/robotai/tb4_ws/src/tb4_cpp_prac2'
+[0.397s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.397s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.399s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/robotai/tb4_ws/src/tb4_cpp_prac3' with build type 'ament_cmake'
+[0.400s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/robotai/tb4_ws/src/tb4_cpp_prac3'
+[0.400s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.400s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.403s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/robotai/tb4_ws/src/tb4_cpp_prac5' with build type 'ament_cmake'
+[0.403s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/robotai/tb4_ws/src/tb4_cpp_prac5'
+[0.403s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.403s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.406s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/robotai/tb4_ws/src/tb4_cpp_prac6' with build type 'ament_cmake'
+[0.406s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/robotai/tb4_ws/src/tb4_cpp_prac6'
+[0.407s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.407s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.410s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/robotai/tb4_ws/src/tb4_cpp_prac7' with build type 'ament_cmake'
+[0.411s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/robotai/tb4_ws/src/tb4_cpp_prac7'
+[0.411s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.411s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.420s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac1 -- -j6 -l6
+[0.427s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+[0.438s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac3': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac3 -- -j6 -l6
+[0.453s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac5': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac5 -- -j6 -l6
+[0.457s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac6': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac6 -- -j6 -l6
+[0.491s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac7 -- -j6 -l6
+[0.603s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac5' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac5 -- -j6 -l6
+[0.627s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac5': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac5
+[0.641s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac2 -- -j6 -l6
+[0.644s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac2
+[0.652s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac6' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac6 -- -j6 -l6
+[0.654s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac6': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac6
+[0.664s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac5)
+[0.665s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac7 -- -j6 -l6
+[0.672s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac7
+[0.673s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac5' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac5
+[0.671s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5' for CMake module files
+[0.673s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5' for CMake config files
+[0.674s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac5', 'cmake_prefix_path')
+[0.674s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/hook/cmake_prefix_path.ps1'
+[0.683s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/hook/cmake_prefix_path.dsv'
+[0.683s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/hook/cmake_prefix_path.sh'
+[0.684s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/lib'
+[0.684s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/bin'
+[0.684s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/lib/pkgconfig/tb4_cpp_prac5.pc'
+[0.685s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/lib/python3.10/site-packages'
+[0.685s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/bin'
+[0.691s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.ps1'
+[0.693s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.dsv'
+[0.694s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.sh'
+[0.694s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.bash'
+[0.696s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.zsh'
+[0.697s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/colcon-core/packages/tb4_cpp_prac5)
+[0.698s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac5)
+[0.698s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5' for CMake module files
+[0.698s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5' for CMake config files
+[0.698s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac5', 'cmake_prefix_path')
+[0.699s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/hook/cmake_prefix_path.ps1'
+[0.701s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/hook/cmake_prefix_path.dsv'
+[0.702s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/hook/cmake_prefix_path.sh'
+[0.702s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/lib'
+[0.702s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/bin'
+[0.702s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/lib/pkgconfig/tb4_cpp_prac5.pc'
+[0.703s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/lib/python3.10/site-packages'
+[0.703s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac5/bin'
+[0.704s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.ps1'
+[0.706s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.dsv'
+[0.707s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.sh'
+[0.707s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.bash'
+[0.707s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/tb4_cpp_prac5/package.zsh'
+[0.708s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac5/share/colcon-core/packages/tb4_cpp_prac5)
+[0.708s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac2)
+[0.709s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac2
+[0.710s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2' for CMake module files
+[0.712s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2' for CMake config files
+[0.712s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac2', 'cmake_prefix_path')
+[0.713s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/hook/cmake_prefix_path.ps1'
+[0.713s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/hook/cmake_prefix_path.dsv'
+[0.713s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/hook/cmake_prefix_path.sh'
+[0.714s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/lib'
+[0.714s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/bin'
+[0.714s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/lib/pkgconfig/tb4_cpp_prac2.pc'
+[0.714s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/lib/python3.10/site-packages'
+[0.715s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/bin'
+[0.715s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.ps1'
+[0.715s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.dsv'
+[0.716s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.sh'
+[0.716s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.bash'
+[0.716s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.zsh'
+[0.717s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/colcon-core/packages/tb4_cpp_prac2)
+[0.719s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac2)
+[0.719s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2' for CMake module files
+[0.720s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2' for CMake config files
+[0.720s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac2', 'cmake_prefix_path')
+[0.720s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/hook/cmake_prefix_path.ps1'
+[0.721s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/hook/cmake_prefix_path.dsv'
+[0.721s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/hook/cmake_prefix_path.sh'
+[0.721s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/lib'
+[0.721s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/bin'
+[0.721s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/lib/pkgconfig/tb4_cpp_prac2.pc'
+[0.723s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/lib/python3.10/site-packages'
+[0.723s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac2/bin'
+[0.723s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.ps1'
+[0.724s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.dsv'
+[0.724s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.sh'
+[0.725s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.bash'
+[0.725s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/tb4_cpp_prac2/package.zsh'
+[0.726s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac2/share/colcon-core/packages/tb4_cpp_prac2)
+[0.730s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac3' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac3 -- -j6 -l6
+[0.731s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac3': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac3
+[0.732s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac6)
+[0.733s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6' for CMake module files
+[0.733s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6' for CMake config files
+[0.734s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac6' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac6
+[0.734s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac6', 'cmake_prefix_path')
+[0.734s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/hook/cmake_prefix_path.ps1'
+[0.735s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/hook/cmake_prefix_path.dsv'
+[0.735s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/hook/cmake_prefix_path.sh'
+[0.736s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/lib'
+[0.736s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/bin'
+[0.736s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/lib/pkgconfig/tb4_cpp_prac6.pc'
+[0.736s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/lib/python3.10/site-packages'
+[0.736s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/bin'
+[0.736s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.ps1'
+[0.737s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.dsv'
+[0.738s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.sh'
+[0.738s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.bash'
+[0.739s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.zsh'
+[0.739s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/colcon-core/packages/tb4_cpp_prac6)
+[0.743s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac6)
+[0.743s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6' for CMake module files
+[0.743s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6' for CMake config files
+[0.744s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac6', 'cmake_prefix_path')
+[0.744s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/hook/cmake_prefix_path.ps1'
+[0.744s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/hook/cmake_prefix_path.dsv'
+[0.746s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/hook/cmake_prefix_path.sh'
+[0.747s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/lib'
+[0.747s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/bin'
+[0.747s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/lib/pkgconfig/tb4_cpp_prac6.pc'
+[0.748s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/lib/python3.10/site-packages'
+[0.748s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac6/bin'
+[0.748s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.ps1'
+[0.749s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.dsv'
+[0.749s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.sh'
+[0.749s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.bash'
+[0.750s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/tb4_cpp_prac6/package.zsh'
+[0.750s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac6/share/colcon-core/packages/tb4_cpp_prac6)
+[0.751s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac7)
+[0.751s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7' for CMake module files
+[0.752s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac7' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac7
+[0.752s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7' for CMake config files
+[0.753s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac7', 'cmake_prefix_path')
+[0.753s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/cmake_prefix_path.ps1'
+[0.753s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/cmake_prefix_path.dsv'
+[0.753s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/cmake_prefix_path.sh'
+[0.754s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/lib'
+[0.754s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac7', 'ld_library_path_lib')
+[0.754s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/ld_library_path_lib.ps1'
+[0.755s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/ld_library_path_lib.dsv'
+[0.755s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/ld_library_path_lib.sh'
+[0.755s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/bin'
+[0.755s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/lib/pkgconfig/tb4_cpp_prac7.pc'
+[0.755s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/lib/python3.10/site-packages'
+[0.756s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/bin'
+[0.756s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.ps1'
+[0.756s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.dsv'
+[0.757s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.sh'
+[0.757s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.bash'
+[0.758s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.zsh'
+[0.758s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/colcon-core/packages/tb4_cpp_prac7)
+[0.758s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac7)
+[0.759s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7' for CMake module files
+[0.759s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7' for CMake config files
+[0.759s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac7', 'cmake_prefix_path')
+[0.759s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/cmake_prefix_path.ps1'
+[0.760s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/cmake_prefix_path.dsv'
+[0.760s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/cmake_prefix_path.sh'
+[0.761s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/lib'
+[0.761s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac7', 'ld_library_path_lib')
+[0.761s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/ld_library_path_lib.ps1'
+[0.761s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/ld_library_path_lib.dsv'
+[0.761s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/hook/ld_library_path_lib.sh'
+[0.762s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/bin'
+[0.762s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/lib/pkgconfig/tb4_cpp_prac7.pc'
+[0.762s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/lib/python3.10/site-packages'
+[0.762s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac7/bin'
+[0.763s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.ps1'
+[0.763s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.dsv'
+[0.763s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.sh'
+[0.764s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.bash'
+[0.764s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/tb4_cpp_prac7/package.zsh'
+[0.765s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac7/share/colcon-core/packages/tb4_cpp_prac7)
+[0.767s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/robotai/tb4_ws/build/tb4_cpp_prac1 -- -j6 -l6
+[0.767s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/robotai/tb4_ws/build/tb4_cpp_prac1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac1
+[0.770s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac3)
+[0.770s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3' for CMake module files
+[0.770s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac3' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac3
+[0.771s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3' for CMake config files
+[0.771s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac3', 'cmake_prefix_path')
+[0.771s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/hook/cmake_prefix_path.ps1'
+[0.772s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/hook/cmake_prefix_path.dsv'
+[0.772s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/hook/cmake_prefix_path.sh'
+[0.773s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/lib'
+[0.773s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/bin'
+[0.773s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/lib/pkgconfig/tb4_cpp_prac3.pc'
+[0.773s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/lib/python3.10/site-packages'
+[0.773s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/bin'
+[0.773s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.ps1'
+[0.775s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.dsv'
+[0.775s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.sh'
+[0.776s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.bash'
+[0.776s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.zsh'
+[0.777s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/colcon-core/packages/tb4_cpp_prac3)
+[0.777s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac3)
+[0.778s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3' for CMake module files
+[0.779s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3' for CMake config files
+[0.779s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac3', 'cmake_prefix_path')
+[0.779s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/hook/cmake_prefix_path.ps1'
+[0.780s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/hook/cmake_prefix_path.dsv'
+[0.781s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/hook/cmake_prefix_path.sh'
+[0.782s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/lib'
+[0.782s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/bin'
+[0.782s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/lib/pkgconfig/tb4_cpp_prac3.pc'
+[0.782s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/lib/python3.10/site-packages'
+[0.783s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac3/bin'
+[0.783s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.ps1'
+[0.783s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.dsv'
+[0.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.sh'
+[0.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.bash'
+[0.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/tb4_cpp_prac3/package.zsh'
+[0.785s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac3/share/colcon-core/packages/tb4_cpp_prac3)
+[0.786s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac1)
+[0.786s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1' for CMake module files
+[0.787s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/robotai/tb4_ws/build/tb4_cpp_prac1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/robotai/tb4_ws/build/tb4_cpp_prac1
+[0.787s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1' for CMake config files
+[0.788s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac1', 'cmake_prefix_path')
+[0.788s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/hook/cmake_prefix_path.ps1'
+[0.788s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/hook/cmake_prefix_path.dsv'
+[0.789s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/hook/cmake_prefix_path.sh'
+[0.789s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/lib'
+[0.789s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/bin'
+[0.789s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/lib/pkgconfig/tb4_cpp_prac1.pc'
+[0.790s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/lib/python3.10/site-packages'
+[0.790s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/bin'
+[0.790s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.ps1'
+[0.790s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.dsv'
+[0.791s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.sh'
+[0.792s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.bash'
+[0.792s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.zsh'
+[0.792s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/colcon-core/packages/tb4_cpp_prac1)
+[0.793s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(tb4_cpp_prac1)
+[0.793s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1' for CMake module files
+[0.794s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1' for CMake config files
+[0.794s] Level 1:colcon.colcon_core.shell:create_environment_hook('tb4_cpp_prac1', 'cmake_prefix_path')
+[0.794s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/hook/cmake_prefix_path.ps1'
+[0.795s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/hook/cmake_prefix_path.dsv'
+[0.795s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/hook/cmake_prefix_path.sh'
+[0.796s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/lib'
+[0.796s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/bin'
+[0.796s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/lib/pkgconfig/tb4_cpp_prac1.pc'
+[0.796s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/lib/python3.10/site-packages'
+[0.796s] Level 1:colcon.colcon_core.environment:checking '/home/robotai/tb4_ws/install/tb4_cpp_prac1/bin'
+[0.796s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.ps1'
+[0.797s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.dsv'
+[0.797s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.sh'
+[0.798s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.bash'
+[0.798s] INFO:colcon.colcon_core.shell:Creating package script '/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/tb4_cpp_prac1/package.zsh'
+[0.798s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/robotai/tb4_ws/install/tb4_cpp_prac1/share/colcon-core/packages/tb4_cpp_prac1)
+[0.799s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.799s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.799s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[0.799s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.809s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.809s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.809s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.836s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.837s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robotai/tb4_ws/install/local_setup.ps1'
+[0.838s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/robotai/tb4_ws/install/_local_setup_util_ps1.py'
+[0.839s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robotai/tb4_ws/install/setup.ps1'
+[0.840s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robotai/tb4_ws/install/local_setup.sh'
+[0.841s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/robotai/tb4_ws/install/_local_setup_util_sh.py'
+[0.841s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robotai/tb4_ws/install/setup.sh'
+[0.842s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robotai/tb4_ws/install/local_setup.bash'
+[0.843s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robotai/tb4_ws/install/setup.bash'
+[0.844s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/robotai/tb4_ws/install/local_setup.zsh'
+[0.844s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/robotai/tb4_ws/install/setup.zsh'

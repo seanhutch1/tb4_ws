@@ -60,7 +60,7 @@ def generate_launch_description():
 
         # default_value=os.path.join(iar_amcl_dir, 'map', 'lab_ICTE4001_Prac4.yaml'),
 
-        default_value=os.path.join(iar_amcl_dir, 'map', 'lab_ICTE4001_Prac4.yaml'),
+        default_value=os.path.join(iar_amcl_dir, 'map', 'office_ICTE4001_sim.yaml'),
 
 
         description='Full path to map yaml file to load')

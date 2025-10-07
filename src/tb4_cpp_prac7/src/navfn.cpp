@@ -161,8 +161,8 @@ namespace iar_astar_planner
 
 
         // set start
-        int k = start_[0] + start_[1] * nx_;
-        potarr_[k] = 0;
+        int k = start_[0] + start_[1] * nx_; // k is the start index for the 1D array
+        potarr_[k] = 0;  /// start square is 0 cost to get to itself
         push_cur(k + 1); // right
         push_cur(k - 1); // left
         push_cur(k - nx_); // top
@@ -173,6 +173,13 @@ namespace iar_astar_planner
             (not just the right, left, top and bottom)  should be pushed to the 
             buffer "curPotentArr_"
         */
+        /// + 1 or -1 moves it over one square to make it 8-connected instead of 4- connected
+        push_cur(k - nx_ - 1); // top left 
+        push_cur(k - nx_ + 1); // top right
+        push_cur(k + nx_ - 1); // bottom left
+        push_cur(k + nx_ + 1); // bottom right
+        /// push_cur does some checks and pushes the cell to current frotier buffer, n_curPotentArr_
+
 
 
         if (n_curPotentArr_ <= 0)

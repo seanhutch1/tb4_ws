@@ -547,20 +547,84 @@ namespace iar_astar_planner
             int stcpx = stc - nx_;
 
             int minc = stc;
-            int curp = potarr_[stc];
-            int minp = curp;
+            int current_p = potarr_[stc];
+            int min_p = current_p;
 
             /* TODO TASK - MILESTONE # 4.1
                 Among eight neighbouring cells of current cell (with index as ``stc")
                 find a cell with minimum potential, and save its index to stc, and its
-                potential to ''minp"
+                potential to ''min_p"
             */
+            int n_right = stc + 1; // right
+            int n_left = stc - 1; // left
+            int n_top = stc - nx_; // top
+            int n_bottom = stc +  nx_; // bottom
+            int n_tl = stc - nx_ - 1; // top left 
+            int n_tr = stc - nx_ + 1; // top right
+            int n_bl = stc + nx_ - 1; // bottom left
+            int n_br = stc + nx_ + 1; // bottom right
 
-            if(minp >= curp)
+            /// read the potentials of all neighbours and current cell
+            float current_p   = potarr_[stc];
+            float p_left = potarr_[n_left];
+            float p_right= potarr_[n_right];
+            float p_top   = potarr_[n_top];
+            float p_bottom = potarr_[n_bottom];
+            float p_tl   = potarr_[n_tl];
+            float p_tr   = potarr_[n_tr];
+            float p_bl   = potarr_[n_bl];
+            float p_br   = potarr_[n_br];
+            
+
+            /// compare each to the current minimum to find lowest.
+            if (p_left < minp) {
+                minp = p_left;
+                minc = n_left;
+            }
+            if (p_right < minp) {
+                minp = p_right;
+                minc = n_right;
+            }
+            if (p_top < minp) {
+                minp = p_top;
+                minc = n_top;
+            }
+            if (p_bottom < minp) {
+                minp = p_bottom;
+                minc = n_bottom;
+            }
+            if (p_tl < minp) {
+                minp = p_tl;
+                minc = n_tl;
+            }
+            if (p_tr < minp) {
+                minp = p_tr;
+                minc = n_tr;
+            }
+            if (p_bl < minp) {
+                minp = p_bl;
+                minc = n_bl;
+            }
+            if (p_br < minp) {
+                minp = p_br;
+                minc = n_br;
+            }
+            
+
+
+
+
+
+
+
+            if(min_p >= current_p)
             {
                 RCLCPP_DEBUG(rclcpp::get_logger("rclcpp"), "[PathCalc] Zero gradient");
                 return 0;
             }
+
+            stc = minc; /// save index to stc value
+
         }
 
         RCLCPP_DEBUG(rclcpp::get_logger("rclcpp"), "[PathCalc] No path found, path too long");

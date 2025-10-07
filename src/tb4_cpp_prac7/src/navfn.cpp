@@ -1,6 +1,7 @@
 #include "iar_astar_planner/navfn.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include <cmath>
+#include <algorithm>
 
 namespace iar_astar_planner
 {
@@ -336,7 +337,7 @@ namespace iar_astar_planner
         return propSuccess;
     }
 
-    inline void NavFn::updateCell(int n)
+    inline void NavFn::updateCell(int n) /// n = cell's index number
     {
         const double SQUAREROOT2 = 1.41421356237;
         float pot;
@@ -353,7 +354,20 @@ namespace iar_astar_planner
                 Please note if you copy code above, an error will appear as it serve for 
                 the purpose of explanation. 
             */           
-  
+            /// Gcost = cost from start to the given cell.
+            /// potarr_ holds the G costs of every cell
+            /// //Gcost + heuristic = predicted total cost of going thru cell
+            /// costarr_ is the per-cell cost to enter that cell. eg, 50 or 254. (traversal cost)
+
+            /// this is calculating to see if there is a cheaper G cost than the current G cost for cell n
+            float l = potarr_[n - 1] + costarr_[n];     /// from left to cell n
+            float r = potarr_[n + 1] + costarr_[n];     /// from right to cell n
+            float t = potarr_[n - nx_] + costarr_[n];   /// from top to cell n
+            float b = potarr_[n + nx_] + costarr_[n];   /// from bottom to cell n
+            
+
+
+
 
             /* TODO TASK - MILESTONE # 3.2
                 Compute the potentials moving from the top-left, top-right, bottom-left, and
@@ -363,6 +377,14 @@ namespace iar_astar_planner
                 Please note here, the coefficient sqrt(2) is used because the traversal distance is
                 sqrt(2) grid unit. 
             */
+            /// same as 3.1 but for the diagonals
+            /// calculating Gcost of diagonals + cost to get into cell n = a potentially cheaper Gcost.
+            float tl = potarr_[n - nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// top left to cell n
+            float tr = potarr_[n - nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// top right to cell n
+            float bl = potarr_[n + nx_ - 1] + SQUAREROOT2 * costarr_[n];  /// bottom left to cell n
+            float br = potarr_[n + nx_ + 1] + SQUAREROOT2 * costarr_[n];  /// bottom right to cell n
+
+
 
 
             /* TODO TASK - MILESTONE # 3.3
@@ -372,7 +394,12 @@ namespace iar_astar_planner
                 The function std::min from the ``algorithm" library can be used. 
                 https://en.cppreference.com/w/cpp/algorithm/min
             */
-            
+            pot = std::min({l, r, t, b, tl, tr, bl, br});
+
+
+
+
+
             
 
             if (pot < potarr_[n]) /* only update the newly computed pot if it is 
@@ -381,11 +408,14 @@ namespace iar_astar_planner
                 /* TODO TASK - MILESTONE # 3.4
                     Update the potential value of cell with index n
                 */
+                potarr_[n] = pot;
+
 
                 /* TODO TASK - MILESTONE # 3.5
                     Compute the heuristic distance from current cell to the goal cell,
                     and add the distance cost to the pot
                 */
+                h = 
   
 
                 if (pot < potentThresh_)

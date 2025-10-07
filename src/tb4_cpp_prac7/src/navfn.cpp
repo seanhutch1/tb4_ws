@@ -245,11 +245,36 @@ namespace iar_astar_planner
                 Check whether the number of valid cell indexes in buffer ``curPotentArr_" and ``nextPotentArr_"
                 is equal to zero, if yes, we break the loop
             */
+            if (n_curPotentArr_ == 0 && n_nextPotentArr_ == 0)
+            {
+                break;
+            } /// 2.2 is straight from tutorial 7 base code. 
+              /// breaks the loop if nothing in either array. 
+              // no more cells in current frontier or queued for next cycle.
 
 
             /* TODO TASK - MILESTONE # 2.3
                 Set the values of cells in ``pending_" with indexes stored in ``curPotentArr_" to false
             */
+            int i = n_curPotentArr_;
+            int * pb = curPotentArr_;
+            while(i-->0)
+            {
+                pending_[*(pb++)] = false;
+            }
+            /// 2.3 is straight from tutorial 7 base code. 
+            /// cells in the current frontier are no longer "pending". 
+            /// it should not be marked as queued anymore.
+
+
+
+
+
+
+
+
+
+
 
             pb = curPotentArr_;
             i = n_curPotentArr_;

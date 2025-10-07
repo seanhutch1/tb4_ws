@@ -415,8 +415,35 @@ namespace iar_astar_planner
                     Compute the heuristic distance from current cell to the goal cell,
                     and add the distance cost to the pot
                 */
-                h = 
-  
+                int goalX;
+                int goalY;
+                int currentX;
+                int currentY;
+                goalX = goal_[0];
+                goalY = goal_[1];
+                
+                /// setNavArr sets nx_ varible. nx_ = grid width = number of columns.
+                /// as 'n' is a cell in terms of a 1D array, and 2D grid coords are needed:
+
+                currentX = n % nx_; /// modulo operator. remainder after integer division. 
+                                    ///     it will give the position inside the row.
+
+                currentY = n / nx_; ///  integer division. will give the remainder after going past the full rows.
+
+                int xDist;
+                int yDist;
+                xDist = goalX - currentX;
+                yDist = goalY - currentY;
+            
+                /// Compute the heuristic distance from current cell to the goal cell:
+                double dist; /// calculates the hypotenuse (euclidean  straight line heuristic of grid cells)
+                dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) ) /// scaled by  COST_NEUTRAL
+
+                pot = pot + static_cast<float>(dist) /// add the distance cost to the pot
+
+
+
+        
 
                 if (pot < potentThresh_)
                 {
@@ -430,6 +457,13 @@ namespace iar_astar_planner
                         An example, for the left cell of current cell, the condition to be checked is
                             potarr_[n - 1] > pot +  costarr_[n - 1]
                     */
+                    if (potarr_[n - 1]   > pot + costarr_[n - 1])   {push_next(n - 1);    } /// left
+                    if (potarr_[n + 1]   > pot + costarr_[n + 1])   {push_next(n + 1);    } /// right
+                    if (potarr_[n - nx_] > pot + costarr_[n - nx_]) {push_next(n - nx_);  } /// up
+                    if (potarr_[n + nx_] > pot + costarr_[n + nx_]) {push_next(n + nx_);  } /// down
+                    /// push_next pushes the cell into the nextPotentialArray buffer.
+                    /// pushes it if a smaller potential is found
+                    /// potarr is Gcost
 
                     /* TODO TASK - MILESTONE # 3.7
                         Check whether current cell's top-left, top-right, bottom-left, and bottom-right
@@ -442,6 +476,10 @@ namespace iar_astar_planner
                             potarr_[n - nx_ - 1] > pot +  sqrt(2) * costarr_[n - nx_ - 1]
                         Please note the difference in the formula to that of above task.
                     */
+                    if (potarr_[n - nx_ - 1] > pot + SQUAREROOT2 * costarr_[n - nx_ - 1]) {push_next(n - nx_ - 1); }/// top left
+                    if (potarr_[n - nx_ + 1] > pot + SQUAREROOT2 * costarr_[n - nx_ + 1]) {push_next(n - nx_ + 1); }/// top right
+                    if (potarr_[n + nx_ - 1] > pot + SQUAREROOT2 * costarr_[n + nx_ - 1]) {push_next(n + nx_ - 1); }/// bottom left
+                    if (potarr_[n + nx_ + 1] > pot + SQUAREROOT2 * costarr_[n + nx_ + 1]) {push_next(n + nx_ + 1); }/// bottom right
 
                 } else {
                     /* TODO TASK - MILESTONE # 3.8

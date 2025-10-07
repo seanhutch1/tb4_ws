@@ -216,6 +216,26 @@ namespace iar_astar_planner
             and add the heuristic distance to the potential threshold
         */
 
+        int startX;
+        int startY;
+        int goalX;
+        int goalY;
+        startX = start_[0];
+        startY = start_[1];
+        goalX = goal_[0];
+        goalY = goal_[1];
+
+        int xDist;
+        int yDist;
+        xDist = goalX - startX;
+        yDist = goalY - startY;
+    
+        double dist; /// calculates the hypotenuse (euclidean  straight line heuristic of grid cells)
+        dist = COST_NEUTRAL * hypot( static_cast<xDist> , static_cast<yDist> ) /// scaled by  COST_NEUTRAL
+
+        potentThreshInc_ = potentThreshInc_ + dist;
+
+
 
         
         bool propSuccess = false;

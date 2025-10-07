@@ -231,7 +231,7 @@ namespace iar_astar_planner
         yDist = goalY - startY;
     
         double dist; /// calculates the hypotenuse (euclidean  straight line heuristic of grid cells)
-        dist = COST_NEUTRAL * hypot( static_cast<xDist> , static_cast<yDist> ) /// scaled by  COST_NEUTRAL
+        dist = COST_NEUTRAL * hypot( static_cast<double>(xDist) , static_cast<double>(yDist) ) /// scaled by  COST_NEUTRAL
 
         potentThreshInc_ = potentThreshInc_ + dist;
 
@@ -270,6 +270,7 @@ namespace iar_astar_planner
             /// cells in the current frontier are no longer "pending". 
             /// it should not be marked as queued anymore.
 
+
             /// pb = pointer to buffer
             pb = curPotentArr_;
             i = n_curPotentArr_;
@@ -277,6 +278,7 @@ namespace iar_astar_planner
             {
                 updateCell(*pb++);
             }
+
 
             //stats
             n_cells += n_curPotentArr_;

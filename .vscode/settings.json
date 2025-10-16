@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "algorithm": "cpp",
-        "bitset": "cpp",
-        "set": "cpp",
-        "chrono": "cpp"
-    }
-}
